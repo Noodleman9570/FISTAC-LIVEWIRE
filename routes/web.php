@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DenomTimbresController;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\CreatePost;
 
 /*
 |--------------------------------------------------------------------------
