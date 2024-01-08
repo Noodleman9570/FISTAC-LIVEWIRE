@@ -10,7 +10,10 @@
                             <x-input-label>
                                 Nombre:
                             </x-input-label>
-                            <x-text-input class="w-full" wire:model="title" required></x-text-input>
+                            <x-text-input class="w-full" wire:model="postCreate.title"></x-text-input>
+
+                            <x-input-error for="postCreate.title" />
+
                         </div>
 
                         <div class="mb-4">
@@ -18,14 +21,15 @@
                                 Contenido:
                             </x-input-label>
 
-                            <x-textarea class="w-full" wire:model="content" required></x-textarea>
+                            <x-textarea class="w-full" wire:model="postCreate.content"></x-textarea>
+                            <x-input-error for="postCreate.content" />
                         </div>
 
                         <div class="mb-4">
                             <x-input-label>
                                 Categoria:
                             </x-input-label>
-                            <x-select class="w-full" wire:model="category_id" required>
+                            <x-select class="w-full" wire:model="postCreate.category_id">
                                 <option value="" disabled>
                                     Selecciona una categoria
                                 </option>
@@ -37,6 +41,7 @@
                                     </option>
                                 @endforeach
                             </x-select>
+                            <x-input-error for="postCreate.category_id" />
                         </div>
 
                         <div class="mb-4">
@@ -47,13 +52,14 @@
                                 @foreach ($tags as $tag)
                                     <li>
                                         <label>
-                                            <x-checkbox wire:model="selectedTags" label="{{ $tag->name }}"
+                                            <x-checkbox wire:model="postCreate.tags" label="{{ $tag->name }}"
                                                 value="{{ $tag->id }}" />
                                             {{ $tag->name }}
                                         </label>
                                     </li>
                                 @endforeach
                             </ul>
+                            <x-input-error for="postCreate.tags" />
                         </div>
 
                         <div class="flex justify-end">
@@ -110,7 +116,8 @@
                     <x-input-label>
                         Nombre:
                     </x-input-label>
-                    <x-text-input class="w-full" wire:model="postEdit.title" required></x-text-input>
+                    <x-text-input class="w-full" wire:model="postEdit.title"></x-text-input>
+                    <x-input-error for="postEdit.title" />
                 </div>
 
                 <div class="mb-4">
@@ -118,14 +125,15 @@
                         Contenido:
                     </x-input-label>
 
-                    <x-textarea class="w-full" wire:model="postEdit.content" required></x-textarea>
+                    <x-textarea class="w-full" wire:model="postEdit.content"></x-textarea>
+                    <x-input-error for="postEdit.content" />
                 </div>
 
                 <div class="mb-4">
                     <x-input-label>
                         Categoria:
                     </x-input-label>
-                    <x-select class="w-full" wire:model="postEdit.category_id" required>
+                    <x-select class="w-full" wire:model="postEdit.category_id">
                         <option value="" disabled>
                             Selecciona una categoria
                         </option>
@@ -137,6 +145,7 @@
                             </option>
                         @endforeach
                     </x-select>
+                    <x-input-error for="postEdit.category_id" />
                 </div>
 
                 <div class="mb-4">
@@ -154,6 +163,7 @@
                             </li>
                         @endforeach
                     </ul>
+                    <x-input-error for="postEdit.tags" />
                 </div>
 
 
