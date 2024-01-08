@@ -2,8 +2,8 @@
 
     <div class="pt-12">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
-            <div class="dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg ">
-                <div class="shadow-md rounded-lg p-6">
+            <div class="dark:bg-gray-800 bg-white overflow-hidden shadow-sm sm:rounded-lg ">
+                <div class="shadow-md text-black dark:text-white rounded-lg p-6">
 
                     <form wire:submit='save'>
                         <div class="mb-4">
@@ -73,7 +73,7 @@
 
     <div>
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
-            <div class="dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg ">
+            <div class="dark:bg-gray-800 bg-white overflow-hidden shadow-sm sm:rounded-lg ">
                 <div class="mt-3 shadow rounded-lg p-6">
                     <ul class="list-disc list-inside space-y-2">
 

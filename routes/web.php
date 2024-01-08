@@ -15,7 +15,17 @@ use App\Livewire\CreatePost;
 |
 */
 
-Route::view('/', 'welcome');
+Route::get('/', function(){
+    // $pdf = App::make('dompdf.wrapper');
+    // $pdf = app('dompdf.wrapper');
+
+    // $path = storage_path('app/views/pdf.html');
+    // $pdf=Pdf::setProtocol("file://"); //Protocolo para windows
+    $pdf = PDF::loadView('pdf.pdf');
+
+    // $pdf->loadHTML('<h1>Hola pdf</h1>');
+    return $pdf->stream();
+});
 
 Route::resource('denomTimbres', DenomTimbresController::class);
 
