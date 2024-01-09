@@ -6,14 +6,15 @@
     </x-slot>
 
     <div class="pt-12">
-        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 text-black dark:text-white">
 
-                <livewire:formulario>
+                {{-- <livewire:formulario>
 
                 <div class="mt-4">
                     <livewire:comments>
-                </div>
+                </div> --}}
 
+            <livewire:father />
 
         </div>
     </div>
