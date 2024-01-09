@@ -1,5 +1,7 @@
 <div>
-
+    @persist('player')
+        <audio src="{{ asset('audios/sky.flac') }}" controls></audio>
+    @endpersist()
     <x-primary-button wire:click='redirigir'>
         Ir a prueba
     </x-primary-button>
@@ -10,16 +12,10 @@
 
     <hr class="my-6">
 
-    <div>
-        <livewire:contador key="contador-1">
-        
-        <livewire:contador key="contador-2">
-        
-        <livewire:contador key="contador-3">
+    <livewire:children :name="$name">
 
-        <livewire:contador key="contador-4">
+    @push('js')
+        <script></script>
+    @endpush
 
-        <livewire:contador key="contador-5">
-    </div>
-     
 </div>

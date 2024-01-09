@@ -4,4 +4,8 @@
             Prueba 
         </h2>
     </x-slot>  
+
+    @persist('player')
+        <audio src="{{ asset('audios/sky.flac') }}" controls></audio>
+    @endpersist()
 </x-app-layout>
