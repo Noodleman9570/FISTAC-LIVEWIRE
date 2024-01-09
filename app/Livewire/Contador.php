@@ -8,19 +8,18 @@ class Contador extends Component
 {
 
     public $count = 0;
-    public $cant = 0;
 
     public function edit(){
         
     }
 
 
-    public function decrement(){
-        $this->count -= $this->cant;
+    public function decrement($cant){
+        $this->count -= $cant;
     }
 
-    public function increment(){
-        $this->count += $this->cant;
+    public function increment($cant){
+        $this->count += $cant;
     }
     
     public function render()

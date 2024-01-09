@@ -9,6 +9,11 @@ class Father extends Component
 
     public $name = "Kewin";
 
+    public function redirigir()
+    {
+        return $this->redirect('/prueba', navigate: true);
+    }
+
     public function render()
     {
         return view('livewire.father');
