@@ -39,8 +39,8 @@ class Formulario extends Component
     {
         $this->categories = Category::all();
         $this->tags = Tag::all();
-
         $this->posts = Post::orderBy('updated_at', 'desc')->get();
+        
     }
 
     public function updating($property, $value)
@@ -51,20 +51,6 @@ class Formulario extends Component
         }
     }
 
-    public function updated($property, $value)
-    {
-
-    }
-
-    public function hydrate()
-    {
-
-    }
-
-    public function dehydrate()
-    {
-
-    }
 
     public function save()
     {
@@ -97,6 +83,14 @@ class Formulario extends Component
         $this->posts = Post::all();
 
         $this->dispatch('post-action', 'Articulo eliminado');
+    }
+
+    public function placeholder(){
+        return <<<'HTML'
+            <div>
+                <p>Carganding...</p>
+            </div>
+        HTML;
     }
 
     public function render(){

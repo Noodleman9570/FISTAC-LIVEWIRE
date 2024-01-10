@@ -12,7 +12,9 @@
 
     <hr class="my-6">
 
-    <livewire:children :name="$name">
+    <livewire:children wire:model='name'>
+
+
 
     @push('js')
         <script></script>
