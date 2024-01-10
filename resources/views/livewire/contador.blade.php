@@ -1,6 +1,8 @@
 <div>
 
-
+    <x-text-input wire:model="cant">
+        {{  }}
+    </x-text-input>
 
     <x-primary-button wire:click="decrement(1)">
         -

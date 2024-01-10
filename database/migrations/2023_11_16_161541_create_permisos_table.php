@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('permisos', function (Blueprint $table) {
             $table->id();
+            $table->boolean('create')->default(0);
+            $table->boolean('read')->default(0);
+            $table->boolean('update')->default(0);
+            $table->boolean('delete')->default(0);
             $table->foreignId('id_rol')
                 ->nullable()
                 ->constrained('roles')
