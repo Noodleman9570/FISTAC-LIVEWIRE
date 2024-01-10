@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\DenomTimbresController;
+use App\Livewire\Contador;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\CreatePost;
+use App\Livewire\Formulario;
 
 /*
 |--------------------------------------------------------------------------

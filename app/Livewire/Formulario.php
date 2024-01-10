@@ -7,6 +7,7 @@ use App\Livewire\Forms\PostEditForm;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Post;
+use Livewire\Attributes\Lazy;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
@@ -40,7 +41,7 @@ class Formulario extends Component
         $this->categories = Category::all();
         $this->tags = Tag::all();
         $this->posts = Post::orderBy('updated_at', 'desc')->get();
-        
+
     }
 
     public function updating($property, $value)
@@ -85,13 +86,7 @@ class Formulario extends Component
         $this->dispatch('post-action', 'Articulo eliminado');
     }
 
-    public function placeholder(){
-        return <<<'HTML'
-            <div>
-                <p>Carganding...</p>
-            </div>
-        HTML;
-    }
+ 
 
     public function render(){
         return view('livewire.formulario');
