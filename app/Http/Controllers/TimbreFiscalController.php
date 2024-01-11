@@ -11,7 +11,7 @@ class TimbreFiscalController extends Controller
      */
     public function index()
     {
-        //
+        // return TimbreFiscal::all();
     }
 
     /**

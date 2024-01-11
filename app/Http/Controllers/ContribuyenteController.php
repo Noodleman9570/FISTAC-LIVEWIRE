@@ -11,7 +11,7 @@ class ContribuyenteController extends Controller
      */
     public function index()
     {
-        //
+        return Contribuyente::all();
     }
 
     /**
