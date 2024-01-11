@@ -4,6 +4,7 @@ use App\Http\Controllers\DenomTimbresController;
 use App\Livewire\Contador;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\CreatePost;
+use App\Livewire\Dashboard;
 use App\Livewire\Formulario;
 
 /*
@@ -21,7 +22,7 @@ Route::view('/', 'welcome');
 
 Route::resource('denomTimbres', DenomTimbresController::class);
 
-Route::view('dashboard', 'dashboard')
+Route::get('dashboard', Dashboard::class)
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 

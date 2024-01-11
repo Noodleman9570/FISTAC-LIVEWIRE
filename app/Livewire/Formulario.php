@@ -46,12 +46,16 @@ class Formulario extends Component
 
     public function updating($property, $value)
     {
-        if ($property == 'postCreate.category_id') {
-            throw new \Exception("No puedes seleccionar esta categoria", 1);
+
+        $cant = count(Category::all());
+
+        if ( $property === "postCreate.category_id") {
+            if ($value > $cant) {
+                throw new \Exception("No puedes seleccionar esta categoria");
+            }
             
         }
     }
-
 
     public function save()
     {
