@@ -29,7 +29,7 @@
 
         @livewireStyles
     </head>
-    <body class="font-sans antialiased m-0 font-normal dark:bg-slate-900 leading-default bg-gray-50 text-slate-500">
+    <body  x-bind:class="$wire.theme" class="font-sans antialiased m-0 font-normal dark:bg-slate-900 leading-default bg-gray-50 text-slate-500">
         <div class="absolute w-full bg-blue-500 dark:bg-blue-900 min-h-75"></div>
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             <livewire:layout._partials.navigation />
@@ -57,4 +57,8 @@
     <script src="{{asset('/js/plugins/perfect-scrollbar.min.js')}}" async></script>
     <!-- main script file  -->
     <script src="{{asset('/js/argon-dashboard-tailwind.js?v=1.0.1')}}" async></script>
+    {{-- Dark Mode --}}
+    <script src="{{ asset('/js/darkmode.js') }}"></script>
+    
+
 </html>

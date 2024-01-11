@@ -66,6 +66,7 @@
             </div>
 
         </form>
+      
 
     </div>
 
@@ -168,6 +169,8 @@
             </x-slot>
         </x-dialog-modal>
     </form>
+
+    
 
     @push('js')
         <script>
