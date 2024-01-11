@@ -31,7 +31,7 @@
     @livewireStyles
 </head>
 
-<body
+<body 
     class="font-sans antialiased m-0 font-normal dark:bg-slate-900 leading-default bg-gray-50 text-slate-500">
     <div class="absolute w-full bg-blue-500 dark:bg-blue-900 min-h-75"></div>
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900" >
