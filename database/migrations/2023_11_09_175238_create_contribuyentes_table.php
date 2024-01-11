@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('contribuyentes', function (Blueprint $table) {
             $table->id();
-            $table->integer('cedula');
+            $table->integer('cedula')->unique();
             $table->string('nombre');
             $table->string('apellido');
             $table->text('direccion');
