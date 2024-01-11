@@ -19,6 +19,11 @@ return new class extends Migration
                 ->constrained('users')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
+            $table->foreignId('id_modulo')
+                ->nullable()
+                ->constrained('modulos')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
             $table->timestamps();
         });
     }

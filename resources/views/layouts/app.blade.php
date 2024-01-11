@@ -11,28 +11,37 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+         <!--     Fonts and icons     -->
+         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+         <!-- Font Awesome Icons -->
+         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+         <!-- Nucleo Icons -->
+         <link href="{{asset('/css/nucleo-icons.css')}}" rel="stylesheet" />
+         <link href="{{asset('/css/nucleo-svg.css')}}" rel="stylesheet" />
+         <!-- Popper -->
+         <script src="https://unpkg.com/@popperjs/core@2"></script>
+         <!-- Main Styling -->
+         <link href="{{asset('/css/argon-dashboard-tailwind.css?v=1.0.1')}}" rel="stylesheet" />
+ 
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased m-0 font-normal dark:bg-slate-900 leading-default bg-gray-50 text-slate-500">
+        <div class="absolute w-full bg-blue-500 dark:bg-blue-900 min-h-75"></div>
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            <livewire:layout.navigation />
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
+            <livewire:layout._partials.navigation />
             <!-- Page Content -->
-            <main>
-                {{ $slot }}
+            <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
+              <!-- Page Heading -->
+              @if (isset($header))
+              @include('layouts._partials.topNavbar')
+              @endif  
+              {{ $slot }}
             </main>
+        </div>
         </div>
         @stack('modals')
 
@@ -40,4 +49,12 @@
 
         @stack('js')
     </body>
+
+
+    <!-- plugin for charts  -->
+    <script src="{{asset('/js/plugins/chartjs.min.js')}}" async></script>
+    <!-- plugin for scrollbar  -->
+    <script src="{{asset('/js/plugins/perfect-scrollbar.min.js')}}" async></script>
+    <!-- main script file  -->
+    <script src="{{asset('/js/argon-dashboard-tailwind.js?v=1.0.1')}}" async></script>
 </html>
