@@ -10,17 +10,17 @@
 
 
         <div class="pt-12">
-            <div class="max-w-4xl mx-auto sm:px-6 lg:px-8 text-black dark:text-white">
+            <div class="max-w-8xl mx-auto sm:px-6 lg:px-8 text-black dark:text-white">
 
-                <livewire:formulario lazy>
+                {{-- <livewire:formulario lazy>
 
                     <div class="mt-4">
                         <livewire:comments>
-                    </div>
+                    </div> --}}
 
                     {{-- <livewire:father /> --}}
 
-
+                    <livewire:contribuyente-table/>
 
             </div>
         </div>

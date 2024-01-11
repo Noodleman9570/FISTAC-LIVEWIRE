@@ -2,6 +2,17 @@
 
     <div class="shadow-md bg-white dark:bg-[#1f2937] text-black dark:text-white rounded-lg p-6">
 
+        <div x-data="{ open: false }">
+
+            <button @click="open = true">Open Dropdown</button>
+          
+            <ul x-show="open" @click.away="open = false">
+              <li>Item 1</li>
+              <li>Item 2</li>
+            </ul>
+          
+          </div>
+
         <form wire:submit='save'>
             <div class="mb-4">
                 <x-input-label>
@@ -177,7 +188,11 @@
             Livewire.on('post-action', function(comment) {
                 console.log(comment[0]);
             });
+
+            console.log(Alpine.version)
         </script>
+
+        
     @endpush
 
 
