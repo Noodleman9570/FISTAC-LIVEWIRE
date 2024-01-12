@@ -95,9 +95,6 @@
     </div>
 
 
-
-    
-
     @push('js')
         <script>
             Livewire.on('post-action', function(comment) {
