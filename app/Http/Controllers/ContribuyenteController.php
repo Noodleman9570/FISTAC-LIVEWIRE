@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contribuyente;
+
 use Illuminate\Http\Request;
 
 class ContribuyenteController extends Controller
