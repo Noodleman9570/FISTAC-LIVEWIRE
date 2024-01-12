@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('timbres_fiscales', function (Blueprint $table) {
             $table->id();
             $table->enum('status', ['generado', 'asignado', 'anulado', 'empleado']);
-            $table->foreignId('id_denominacion')
+            $table->foreignId('denominacion_id')
                 ->nullable()
                 ->constrained('denom_timbres')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-            $table->foreignId('id_tramite')
+            $table->foreignId('tramite_id')
                 ->nullable()
                 ->constrained('tramites')
                 ->cascadeOnUpdate()

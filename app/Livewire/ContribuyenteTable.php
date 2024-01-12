@@ -60,10 +60,10 @@ final class ContribuyenteTable extends PowerGridComponent
     {
         return [
             Column::make('Id', 'id'),
-            Column::make('Cedula','cedula'),
+            Column::make('Cedula','cedula')->searchable(),
             Column::make('Nombre','nombre')->searchable(),
-            Column::make('Apellido','apellido'),
-            Column::make('Telefono','telefono'),
+            Column::make('Apellido','apellido')->searchable(),
+            Column::make('Telefono','telefono')->searchable(),
             Column::make('Created at', 'created_at_formatted', 'created_at')
                 ->sortable(),
 
@@ -81,17 +81,29 @@ final class ContribuyenteTable extends PowerGridComponent
     #[\Livewire\Attributes\On('edit')]
     public function edit($rowId): void
     {
-        $this->js('alert('.$rowId.')');
+        $this->js('alert("medina es marico")');
+    }
+
+    #[\Livewire\Attributes\On('delete')]
+    public function delete($rowId): void
+    {
+        $this->js('alert("kevin es marico")');
     }
 
     public function actions(\App\Models\Contribuyente $row): array
     {
         return [
             Button::add('edit')
-                ->slot('Edit: '.$row->id)
+                ->slot('<i class="bi bi-pencil-square"></i> Editar')
                 ->id()
-                ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
-                ->dispatch('edit', ['rowId' => $row->id])
+                ->class('pg-btn-white text-xl font-bold dark:pg-btn-yellow dark:ring-yellow-400 dark:border-yellow-400 dark:hover:bg-yellow-600 dark:ring-offset-yellow-700 dark:text-white dark:bg-yellow-400 pg-btn-yellow ring-yellow-400 border-yellow-400 hover:bg-yellow-600 ring-offset-yellow-700 text-white bg-yellow-400')
+                ->openModal('EditContribuyente', ['rowId' => $row->id]),
+
+            Button::add('delete')
+                ->slot('<i class="bi bi-trash"></i> Eliminar')
+                ->id()
+                ->class('pg-btn-white text-xl font-bold dark:pg-btn-red dark:ring-red-600 dark:border-red-600 dark:hover:bg-red-600 dark:ring-offset-red-700 dark:text-white dark:bg-red-600 pg-btn-red ring-red-600 border-red-600 hover:bg-red-600 ring-offset-red-700 text-white bg-red-600')
+                ->dispatch('delete', ['rowId' => $row->id])
         ];
     }
 

@@ -29,7 +29,7 @@
     <style>
 
         [x-cloak] { display: none !important; }
-    
+
     </style>
 
     <!-- Scripts -->
@@ -38,13 +38,13 @@
     @livewireStyles
 </head>
 
-<body 
+<body
     class="font-sans antialiased m-0 font-normal dark:bg-slate-900 leading-default bg-gray-50 text-slate-500">
     <div class="absolute w-full bg-blue-500 dark:bg-blue-900 min-h-75"></div>
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900" >
             <livewire:layout.navigation />
             <!-- Page Content -->
-            <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl xl:ml-32 md:ml-32">
+            <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl  md:ml-32">
                 <!-- Page Heading -->
                 @if (isset($header))
                     <livewire:topNavbar wire:model='page'>
@@ -55,11 +55,11 @@
     </div>
 
 
-  
+
 
 </div>
 
-    
+
     @stack('modals')
 
     @livewireScripts
@@ -77,5 +77,5 @@
 {{-- Dark Mode --}}
 <script src="{{ asset('/js/darkmode.js') }}"></script>
 
-
+@livewire('wire-elements-modal')
 </html>

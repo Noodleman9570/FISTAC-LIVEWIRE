@@ -16,16 +16,16 @@ return new class extends Migration
             $table->string('nombre');
             $table->text('descripcion');
             $table->integer('total_ut');
-            $table->foreignId('id_concepto_tributo')
+            $table->foreignId('concepto_tributo_id')
                 ->nullable()
                 ->constrained('concepto_tributos')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->foreignId('id_estandar_doc')
-                ->nullable()
-                ->constrained('estandarizacion_docs')
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
+            // $table->foreignId('id_estandar_doc')
+            //     ->nullable()
+            //     ->constrained('estandarizacion_docs')
+            //     ->cascadeOnUpdate()
+            //     ->cascadeOnDelete();
             $table->timestamps();
         });
     }

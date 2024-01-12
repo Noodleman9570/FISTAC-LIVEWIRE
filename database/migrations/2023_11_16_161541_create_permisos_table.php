@@ -17,12 +17,12 @@ return new class extends Migration
             $table->boolean('read')->default(0);
             $table->boolean('update')->default(0);
             $table->boolean('delete')->default(0);
-            $table->foreignId('id_rol')
+            $table->foreignId('rol_id')
                 ->nullable()
                 ->constrained('roles')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-            $table->foreignId('id_modulo')
+            $table->foreignId('modulo_id')
                 ->nullable()
                 ->constrained('modulos')
                 ->cascadeOnUpdate()

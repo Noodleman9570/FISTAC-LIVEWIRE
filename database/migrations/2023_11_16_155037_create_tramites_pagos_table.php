@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('tramites_pagos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_tramite')
+            $table->foreignId('tramite_id')
                 ->nullable()
                 ->constrained('tramites')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-            $table->foreignId('id_pago')
-                ->nullable()
-                ->constrained('pagos')
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
+            // $table->foreignId('pago_id')
+            //     ->nullable()
+            //     ->constrained('pagos')
+            //     ->cascadeOnUpdate()
+            //     ->nullOnDelete();
             $table->timestamps();
         });
     }

@@ -24,7 +24,7 @@ Route::view('/', 'welcome');
 Route::resource('denomTimbres', DenomTimbresController::class);
 
 
-Route::get('dashboard', Dashboard::class)
+Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 

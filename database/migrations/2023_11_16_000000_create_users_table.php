@@ -17,18 +17,18 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('id_oficina')
+            $table->foreignId('oficina_id')
                 ->nullable()
                 ->constrained('oficinas')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-            $table->foreignId('id_contribuyente')
+            $table->foreignId('contribuyente_id')
                 ->nullable()
                 ->constrained('contribuyentes')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
             $table->rememberToken();
-            $table->foreignId('id_rol')
+            $table->foreignId('role_id')
                 ->nullable()
                 ->constrained('roles')
                 ->cascadeOnUpdate()

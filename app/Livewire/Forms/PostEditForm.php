@@ -27,18 +27,22 @@ class PostEditForm extends Form
 
     public function edit($postId)
     {
+
         $this->open = true;
-        $this->postId=$postId;
+        // dd($this->open);
+        // $this->postId=$postId;
 
-        $this->postId = $postId;
+        // $this->postId = $postId;
 
-        $post = Post::find($postId);
+        // $post = Post::find($postId);
 
-        $this->category_id = $post->category_id;
-        $this->title = $post->title;
-        $this->content = $post->content;
+        // dd($post->category_id);
 
-        $this->tags = $post->tags->pluck('id')->toArray();
+        // $this->category_id = $post->category_id;
+        // $this->title = $post->title;
+        // $this->content = $post->content;
+
+        // $this->tags = $post->tags->pluck('id')->toArray();
 
     }
 

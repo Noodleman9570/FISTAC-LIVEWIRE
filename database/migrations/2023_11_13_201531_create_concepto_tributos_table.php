@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('concepto_tributos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_categoria')
+            $table->foreignId('categoria_id')
                 ->nullable()
                 ->constrained('categorias')
                 ->cascadeOnUpdate()

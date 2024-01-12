@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('bitacoras', function (Blueprint $table) {
             $table->id();
             $table->string('accion');
-            $table->foreignId('id_usuario')
+            $table->foreignId('user_id')
                 ->nullable()
                 ->constrained('users')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-            $table->foreignId('id_modulo')
+            $table->foreignId('modulo_id')
                 ->nullable()
                 ->constrained('modulos')
                 ->cascadeOnUpdate()

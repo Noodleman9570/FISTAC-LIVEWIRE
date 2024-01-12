@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('tramites', function (Blueprint $table) {
             $table->id();
             $table->text('descripcion');
-            $table->foreignId('id_contribuyente')
+            $table->foreignId('contribuyente_id')
                 ->nullable()
                 ->constrained('contribuyentes')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-            $table->foreignId('id_ente_tramite')
+            $table->foreignId('ente_tramite_id')
                 ->nullable()
                 ->constrained('ente_tramites')
                 ->cascadeOnUpdate()

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('num_cuenta');
             $table->string('referencia');
             $table->string('monto');
-            $table->foreignId('cod_banco')
+            $table->foreignId('banco_id')
                 ->nullable()
                 ->references('cod_banco')
                 ->on('bancos')
