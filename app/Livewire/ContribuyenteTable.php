@@ -52,10 +52,9 @@ final class ContribuyenteTable extends PowerGridComponent
             ->addColumn('cedula')
             ->addColumn('nombre')
             ->addColumn('apellido')
-            ->addColumn('telefono')
-            ->addColumn('created_at_formatted', fn (Contribuyente $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
+            ->addColumn('telefono');
+            
     }
-
     public function columns(): array
     {
         return [
@@ -64,8 +63,6 @@ final class ContribuyenteTable extends PowerGridComponent
             Column::make('Nombre','nombre')->searchable(),
             Column::make('Apellido','apellido')->searchable(),
             Column::make('Telefono','telefono')->searchable(),
-            Column::make('Created at', 'created_at_formatted', 'created_at')
-                ->sortable(),
 
             Column::action('Action')
         ];
