@@ -23,9 +23,9 @@ class RoleSeeder extends Seeder
         $roleTaq->descripcion = 'Este rol genera y asigna timbres fiscales';
         $roleTaq->save();
 
-        $roleImpr = new Role();
-        $roleImpr->rol = 'Impresion';
-        $roleImpr->descripcion = 'Este rol genera timbres fiscales fisicos para ser impresos';
-        $roleImpr->save();
+        $roleRegis = new Role();
+        $roleRegis->rol = 'Registro';
+        $roleRegis->descripcion = 'Este rol se encarga de aceptar los timbres fiscales y validarlos';
+        $roleRegis->save();
     }
 }

@@ -27,7 +27,7 @@ class EditContribuyente extends ModalComponent
         ]
 
     ];
-    public $button_action = 'actualizar';
+    public $buttonAction = 'actualizar';
 
     public $contribuyentes;
 

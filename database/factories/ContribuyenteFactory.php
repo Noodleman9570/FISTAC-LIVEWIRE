@@ -56,6 +56,7 @@ class ContribuyenteFactory extends Factory
     {
         return [
             'cedula' => $this->cedula(),
+            'prefijo' => fake()->randomElement(['V', 'E', 'J', 'G']),
             'nombre' => fake()->name(),
             'apellido' => fake()->name(),
             'direccion' => fake()->text,

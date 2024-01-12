@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Contribuyente;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 use PowerComponents\LivewirePowerGrid\Button;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Exportable;
@@ -37,7 +38,7 @@ final class ContribuyenteTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Contribuyente::query();
+        return Contribuyente::selectRaw("CONCAT(prefijo, '-', cedula) AS documento, *");            
     }
 
     public function relationSearch(): array
@@ -49,21 +50,28 @@ final class ContribuyenteTable extends PowerGridComponent
     {
         return PowerGrid::columns()
             ->addColumn('id')
-            ->addColumn('cedula')
+            ->addColumn('documento')
             ->addColumn('nombre')
             ->addColumn('apellido')
             ->addColumn('telefono');
             
     }
+
+
+    
     public function columns(): array
     {
         return [
             Column::make('Id', 'id'),
-            Column::make('Cedula','cedula')->searchable(),
+            Column::add()
+                ->title("documento")
+                ->field('documento')
+                ->searchable(),
+            // Column::make('Cedula','cedula')->searchable(),
             Column::make('Nombre','nombre')->searchable(),
             Column::make('Apellido','apellido')->searchable(),
             Column::make('Telefono','telefono')->searchable(),
-
+            
             Column::action('Action')
         ];
     }

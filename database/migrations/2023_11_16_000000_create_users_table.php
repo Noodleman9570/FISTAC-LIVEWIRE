@@ -22,11 +22,6 @@ return new class extends Migration
                 ->constrained('oficinas')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
-            $table->foreignId('contribuyente_id')
-                ->nullable()
-                ->constrained('contribuyentes')
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
             $table->rememberToken();
             $table->foreignId('role_id')
                 ->nullable()

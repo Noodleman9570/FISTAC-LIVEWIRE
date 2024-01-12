@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('contribuyentes', function (Blueprint $table) {
             $table->id();
-            $table->integer('cedula')->unique();
+            $table->integer('cedula');
+            $table->enum('prefijo', ['V', 'E', 'J', 'G']);
+            $table->unique(['prefijo', 'cedula']);
             $table->string('nombre');
             $table->string('apellido');
             $table->text('direccion');
