@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Modulo;
 
 class Navigation extends Component
 {
@@ -11,11 +12,11 @@ class Navigation extends Component
 
     public function mount()
     {
-
+        $this->modulos = Modulo::all();
     }
 
     public function render()
     {
-        return view('livewire.navigation');
+        return view('livewire.layout.navigation');
     }
 }

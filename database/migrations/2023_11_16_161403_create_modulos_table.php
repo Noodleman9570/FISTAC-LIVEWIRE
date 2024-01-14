@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('modulos', function (Blueprint $table) {
             $table->id();
             $table->string('modulo');
+            $table->string('ruta');
             $table->string('descripcion');
             $table->timestamps();
         });
