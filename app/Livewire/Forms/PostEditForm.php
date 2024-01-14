@@ -29,20 +29,20 @@ class PostEditForm extends Form
     {
 
         $this->open = true;
-        // dd($this->open);
-        // $this->postId=$postId;
 
-        // $this->postId = $postId;
+        $this->postId=$postId;
 
-        // $post = Post::find($postId);
+        $this->postId = $postId;
 
-        // dd($post->category_id);
+        $post = Post::find($postId);
 
-        // $this->category_id = $post->category_id;
-        // $this->title = $post->title;
-        // $this->content = $post->content;
 
-        // $this->tags = $post->tags->pluck('id')->toArray();
+
+        $this->category_id = $post->category_id;
+        $this->title = $post->title;
+        $this->content = $post->content;
+
+        $this->tags = $post->tags->pluck('id')->toArray();
 
     }
 

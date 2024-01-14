@@ -38,6 +38,7 @@ class Formulario extends Component
     //Ciclo de vida de un componente
     public function mount()
     {
+        
         $this->categories = Category::all();
         $this->tags = Tag::all();
         $this->posts = Post::orderBy('updated_at', 'desc')->get();
