@@ -1,3 +1,22 @@
+<?php
+
+use Livewire\Volt\Component;
+use App\Models\Modulo;
+
+new class extends Component
+{
+    
+    public $modulos = [];
+
+    public function mount()
+    {
+        $this->modulos = Modulo::All();
+    }
+
+
+}; 
+?>
+
 <div>
     <aside id="logo-sidebar"
         class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full xl:translate-x-0"
@@ -32,8 +51,6 @@
                                 class="ml-1 duration-300 opacity-100 pointer-events-none ease">{{ __('Dashboard') }}</span>
                         </x-nav-link>
                     </li>
-
-                   
 
                     @forelse ($modulos as $modulo)
                         <li class="mt-0.5 w-full">
