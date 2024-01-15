@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Forms\Contribuyentes;
+namespace App\Livewire\Contribuyentes\Forms;
 
 use App\Models\Contribuyente;
 use Livewire\Attributes\Rule;

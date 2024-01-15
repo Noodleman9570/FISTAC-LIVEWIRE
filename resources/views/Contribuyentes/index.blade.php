@@ -6,6 +6,9 @@
         </h2>
     </x-slot>
 
-    <h1>holiwiwis</h1>
+
+    <livewire:Contribuyentes.index>
+
+    
 
 </x-app-layout>
