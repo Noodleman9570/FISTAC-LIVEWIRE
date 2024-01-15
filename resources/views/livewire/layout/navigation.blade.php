@@ -37,30 +37,26 @@ new class extends Component
                 </a>
             </div>
             <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent" />
-            <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
+            <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav h-[35rem] grow basis-full"><!--contenido de nav-->
                 <ul class="flex flex-col pl-0 mb-0">
                     
                     <li class="mt-0.5 w-full">
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            <div
-                                class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                                <i class="relative top-0 text-sm leading-normal text-blue-500 ni ni-tv-2"></i>
+                            <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                <i class="relative top-0 text-xl leading-normal text-blue-500 ni ni-tv-2"></i>
                             </div>
                             <span
                                 class="ml-1 duration-300 opacity-100 pointer-events-none ease">{{ __('Dashboard') }}</span>
                         </x-nav-link>
                     </li>
 
-
                     @forelse ($modulos as $modulo)
                         <li class="mt-0.5 w-full">
                             <x-nav-link :href="route($modulo->ruta)" :active="request()->routeIs($modulo->ruta)">
-                                <div
-                                    class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                                    <i class="relative top-0 text-sm leading-normal text-blue-500 {{ $modulo->icon ? $modulo->icon : '' }}"></i>
+                                <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                    <i class="relative text-xl top-0  leading-normal text-blue-500 {{ $modulo->icon ? $modulo->icon : '' }}"></i>
                                 </div>
-                                <span
-                                    class="ml-1 duration-300 opacity-100 pointer-events-none ease">{{ $modulo->modulo }}</span>
+                                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">{{ $modulo->modulo }}</span>
                             </x-nav-link>
                         </li>
                     @empty
@@ -74,5 +70,7 @@ new class extends Component
         </nav>
 
     </aside>
-
+<div>
+    
+</div>
 </div>
