@@ -33,6 +33,8 @@
                         </x-nav-link>
                     </li>
 
+                   
+
                     @forelse ($modulos as $modulo)
                         <li class="mt-0.5 w-full">
                             <x-nav-link :href="route($modulo->ruta)" :active="request()->routeIs($modulo->ruta)">

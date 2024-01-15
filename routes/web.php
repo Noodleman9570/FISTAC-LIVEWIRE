@@ -8,6 +8,18 @@ use App\Livewire\Dashboard;
 use App\Livewire\Formulario;
 use App\Livewire\TableComponent;
 
+//Modulos del sistema
+
+use App\Http\Controllers\AsigTimElecController;
+use App\Http\Controllers\GenTimFisController;
+use App\Http\Controllers\AsigTimFisController;
+use App\Http\Controllers\AggContribController;
+use App\Http\Controllers\AggUsuarioController;
+use App\Http\Controllers\ContrTimController;
+use App\Http\Controllers\BitacoraController;
+use App\Http\Controllers\LeyController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +33,17 @@ use App\Livewire\TableComponent;
 
 Route::view('/', 'welcome');
 
-Route::resource('denomTimbres', DenomTimbresController::class);
+Route::resource('AsigTimElec', AsigTimElecController::class);
+Route::resource('GenTimFis', GenTimFisController::class);
+Route::resource('AsigTimFis', AsigTimFisController::class);
+Route::resource('AggContrib', AggContribController::class);
+Route::resource('AggUsuario', AggUsuarioController::class);
+Route::resource('ContrTim', ContrTimController::class);
+Route::resource('Bitacora', BitacoraController::class);
+Route::resource('Ley', LeyController::class);
+
+
+// Route::resource('denomTimbres', DenomTimbresController::class);
 
 
 Route::view('dashboard', 'dashboard')
