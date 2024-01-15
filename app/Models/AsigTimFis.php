@@ -5,9 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Banco extends Model
+class AsigTimFis extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['cod_banco', 'banco'];
 }
