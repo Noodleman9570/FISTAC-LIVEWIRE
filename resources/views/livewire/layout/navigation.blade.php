@@ -52,12 +52,13 @@ new class extends Component
                         </x-nav-link>
                     </li>
 
+
                     @forelse ($modulos as $modulo)
                         <li class="mt-0.5 w-full">
                             <x-nav-link :href="route($modulo->ruta)" :active="request()->routeIs($modulo->ruta)">
                                 <div
                                     class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                                    <i class="relative top-0 text-sm leading-normal text-blue-500 ni ni-tv-2"></i>
+                                    <i class="relative top-0 text-sm leading-normal text-blue-500 {{ $modulo->icon ? $modulo->icon : '' }}"></i>
                                 </div>
                                 <span
                                     class="ml-1 duration-300 opacity-100 pointer-events-none ease">{{ $modulo->modulo }}</span>

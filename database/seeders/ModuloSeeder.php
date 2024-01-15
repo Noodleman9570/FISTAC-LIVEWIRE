@@ -15,38 +15,39 @@ class ModuloSeeder extends Seeder
     {
         //Modulo de Asignacion de Timbres Electronicos
         $modAsigTimElec = new Modulo;
-        $modAsigTimElec->modulo = "Asignación de Timbre Electrónico";
+        $modAsigTimElec->modulo = "Asignación Timbre Electrónico";
+        $modAsigTimElec->icon = "bi bi-file-break";
         $modAsigTimElec->ruta = "AsigTimElec.index";
         $modAsigTimElec->descripcion = "Módulo para Generar y Asignar Timbres Electrónico en Taquilla";
         $modAsigTimElec->save();
 
         $modGenTimFis = new Modulo;
-        $modGenTimFis->modulo = "Generacion de Timbres Fisicos";
+        $modGenTimFis->modulo = "Generacion Timbres Fisicos";
         $modGenTimFis->ruta = "GenTimFis.index";
         $modGenTimFis->descripcion = "Módulo para Generar Timbres Físicos";
         $modGenTimFis->save();
 
         $modAsigTimFis = new Modulo;
-        $modAsigTimFis->modulo = "Asignacion de Timbres Físicos";
+        $modAsigTimFis->modulo = "Asignacion Timbres Físicos";
         $modAsigTimFis->ruta = "AsigTimFis.index";
         $modAsigTimFis->descripcion = "Módulo para Asignar Timbres Físicos";
         $modAsigTimFis->save();
 
         $aggContrib = new Modulo;
-        $aggContrib->modulo = "Agregar Contribuyente";
-        $aggContrib->ruta = "AggContrib.index";
+        $aggContrib->modulo = "Contribuyente";
+        $aggContrib->ruta = "Contribuyente.index";
         $aggContrib->descripcion = "Módulo para Agregar nuevos Contribuyente";
         $aggContrib->save();
 
         $aggUser = new Modulo;
-        $aggUser->modulo = "Agregar Usuario";
-        $aggUser->ruta = "AggUsuario.index";
+        $aggUser->modulo = "Usuario";
+        $aggUser->ruta = "User.index";
         $aggUser->descripcion = "Módulo para Agregar nuevos Usuarios";
         $aggUser->save();
 
         $controlTim = new Modulo;
         $controlTim->modulo = "Control de timbres";
-        $controlTim->ruta = "ContrTim.index";
+        $controlTim->ruta = "ControlTimbre.index";
         $controlTim->descripcion = "Módulo para Llevar el control de los timbres fiscales y realizar reportes";
         $controlTim->save();
 

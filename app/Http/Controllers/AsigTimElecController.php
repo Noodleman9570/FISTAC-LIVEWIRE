@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AsigTimElec;
 use Illuminate\Http\Request;
 
-class TimbreFiscalController extends Controller
+class AsigTimElecController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // return TimbreFiscal::all();
+        //
     }
 
     /**
@@ -33,7 +34,7 @@ class TimbreFiscalController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(AsigTimElec $asigTimElec)
     {
         //
     }
@@ -41,7 +42,7 @@ class TimbreFiscalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(AsigTimElec $asigTimElec)
     {
         //
     }
@@ -49,7 +50,7 @@ class TimbreFiscalController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, AsigTimElec $asigTimElec)
     {
         //
     }
@@ -57,7 +58,7 @@ class TimbreFiscalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(AsigTimElec $asigTimElec)
     {
         //
     }
