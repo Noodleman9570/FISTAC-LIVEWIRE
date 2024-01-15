@@ -8,7 +8,7 @@
     </x-slot>
 
 
-    <div class="pt-12">
+    <div class="pt-12 xl:pl-[10rem]">
         <div
             class="max-w-[70vw] bg-white dark:bg-[#111827] p-4 rounded-lg mx-auto sm:px-6 lg:px-8 text-black dark:text-white">
 
