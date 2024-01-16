@@ -11,11 +11,10 @@
             <form wire:submit='save'>
                 <x-dialog-modal wire:model="contribuyenteCreate.open">
                     <x-slot name="title">
-                        Actualizar post
+                        Agregar Contribuyente
                     </x-slot>
 
                     <x-slot name="content">
-                        <div class="mb-4">
 
                             <x-select class="w-20" wire:model="contribuyenteCreate.prefijo">
                                 <option value="" selected disabled>
@@ -33,26 +32,85 @@
                             <x-input-label>
                                 Cedula:
                             </x-input-label>
+                        <x-input-label>
+                            Cedula:
+                        </x-input-label>
+                        <div class="flex mb-4">
+                            <span class="mr-2">
+                                <x-select class="w-20" wire:model="contribuyenteCreate.prefijo">
+                                    <option value="" disabled>
+                                        Selecciona una categoria
+                                    </option>
+                                    <option value="V">V</option>
+                                    <option value="E">E</option>
+                                    <option value="J">J</option>
+                                    <option value="G">G</option>
+                                </x-select>
+                                <x-input-error-jet for="contribuyenteCreate.prefijo" />
+                            </span>
+                            
                             <x-text-input class="w-full" wire:model="contribuyenteCreate.cedula"></x-text-input>
-                            <x-input-error-jet for="contribuyenteCreate.cedula" />
-                        </div>
-            
-                        <div class="mb-4">
-                            <x-input-label>
-                                Nombre:
-                            </x-input-label>
-            
-                            <x-text-input class="w-full" wire:model="contribuyenteCreate.nombre1st"></x-text-input>
-                            <x-input-error-jet for="contribuyenteCreate.nombre1st" />
+                            <x-input-error-jet for="contribuyenteCreate.cedula" />                        
                         </div>
 
-                        <div class="mb-4">
-                            <x-input-label>
-                                Segundo nombre:
-                            </x-input-label>
-            
-                            <x-text-input class="w-full" wire:model="contribuyenteCreate.nombre2nd"></x-text-input>
-                            <x-input-error-jet for="contribuyenteCreate.nombre2nd" />
+                        <div class="flex mb-4">
+                            <span class="w-full mr-2">
+                                <x-input-label>
+                                    Nombre:
+                                </x-input-label>
+
+                                <x-text-input class="w-full" wire:model="contribuyenteCreate.nombre1st"></x-text-input>
+                                <x-input-error-jet for="contribuyenteCreate.nombre1st" />
+
+                            </span>
+
+                            <span class="w-full">
+                                <x-input-label  class="flex items-center mb-4">
+                                    Segundo nombre:
+                                </x-input-label>
+
+                                <div class="flex -mt-4">
+                                    <x-input-error-jet for="contribuyenteCreate.nombre2nd" />
+                                    <x-text-input class="w-full" wire:model="contribuyenteCreate.nombre2nd"></x-text-input>
+                                    <span data-tooltip-target="tooltip-nombre">
+                                        <input id="default-checkbox" type="checkbox" value="" class="w-10 h-10 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    </span>
+                                </div>
+                                <div id="tooltip-nombre" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                    Si precionas este boton es porque no tiene segundo nombre
+                                    <div class="tooltip-arrow" data-popper-arrow></div>
+                                </div>
+                            </span>         
+                        </div>
+
+
+                        <div class="flex mb-4">
+                            <span class="w-full mr-2">
+                                <x-input-label>
+                                    Apellido:
+                                </x-input-label>
+                                <x-text-input class="w-full" wire:model="contribuyenteCreate.nombre1st"></x-text-input>
+                                <x-input-error-jet for="contribuyenteCreate.nombre1st" />
+
+                            </span>
+
+                            <span class="w-full">
+                                <x-input-label  class="flex items-center mb-4">
+                                    Segundo apellido:
+                                </x-input-label>
+
+                                <div class="flex -mt-4">
+                                    <x-input-error-jet for="contribuyenteCreate.nombre2nd" />
+                                    <x-text-input class="w-full" wire:model="contribuyenteCreate.nombre2nd"></x-text-input>
+                                    <span data-tooltip-target="tooltip-apellido">
+                                        <input id="default-checkbox" type="checkbox" value="" class="w-10 h-10 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    </span>
+                                </div>
+                                <div id="tooltip-apellido" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                    Si precionas este boton es porque no tiene segundo apellido
+                                    <div class="tooltip-arrow" data-popper-arrow></div>
+                                </div>
+                            </span>                 
                         </div>
 
                         <div class="mb-4">
