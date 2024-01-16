@@ -14,26 +14,9 @@ class Index extends Component
 
     public ContribuyenteCreateForm $contribuyenteCreate;
 
-    public $title = 'Actualizar contribuyente';
-    public $submit = 'update';
-    public $inputs = [
-        [
-            'name' => 'cedula',
-            'type' => 'number',
-            'lable' => 'Cedula',
-            'placeholder' => 'Ingrese su cedula'
-        ],
-        [
-            'name' => 'cedula',
-            'type' => 'number',
-            'lable' => 'Cedula',
-            'placeholder' => 'Ingrese su cedula'
-        ]
-
-    ];
-    public $buttonAction = 'actualizar';
-
     public $contribuyentes;
+    public $req = true;
+    public $req2 = true;
 
 
     public function mount()
@@ -45,6 +28,7 @@ class Index extends Component
 
     public function create()
     {
+
         $this->contribuyenteCreate->create();
     }
 
@@ -54,6 +38,14 @@ class Index extends Component
         // $this->contribuyente = Contribuyente::all();
 
         $this->dispatch('post-action', 'Nuevo articulo creado');
+        $this->dispatch('registroCreado');
+    }
+
+    public function reqSwitch()
+    {
+
+        $this->req = !$this->req;
+
     }
 
     public function edit($contribuyenteId)

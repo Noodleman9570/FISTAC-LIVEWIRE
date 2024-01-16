@@ -11,7 +11,7 @@ class Contribuyente extends Model
     use HasFactory;
 
     protected $fillable = [
-        'prefijo','cedula','nombre1st', 'nombre2nd', 'apellido1st', 'apellido2nd', 'direccion', 'telefono'
+        'prefijo','cedula','nombre','apellido','direccion','telefono'
     ];
 
     /**
@@ -23,4 +23,5 @@ class Contribuyente extends Model
     {
         return $this->hasMany(TramiteCollection::class);
     }
+    
 }

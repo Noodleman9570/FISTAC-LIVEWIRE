@@ -25,6 +25,18 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
     <link href="{{ asset('/css/argon-dashboard-tailwind.css?v=1.0.1') }}" rel="stylesheet" />
+
+
+    <style>
+        .checkbox-x:not(:checked) + .checkbox-icon {
+            display: none;
+        }
+
+        .checkbox-x:checked + .checkbox-icon {
+            display: block;
+        }
+
+    </style>
     
 
     <style>

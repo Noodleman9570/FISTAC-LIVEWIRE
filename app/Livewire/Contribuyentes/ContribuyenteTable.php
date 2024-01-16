@@ -21,6 +21,15 @@ final class ContribuyenteTable extends PowerGridComponent
 {
     use WithExport;
 
+    public $refresh = false;
+
+    protected $listeners = ['registroCreado' => '$refresh'];
+
+    // public function mount(): void
+    // {
+    //     $this->listen('registroCreado', '$refresh');
+    // }
+
     public function setUp(): array
     {
         $this->showCheckBox();
@@ -38,7 +47,7 @@ final class ContribuyenteTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Contribuyente::selectRaw("CONCAT(prefijo, '-', cedula) AS documento, *");            
+        return Contribuyente::selectRaw("CONCAT(prefijo, '-', cedula) AS documento, *")->orderBy('id', 'desc');            
     }
 
     public function relationSearch(): array
@@ -62,7 +71,7 @@ final class ContribuyenteTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('Id', 'id'),
+            Column::make('Id', 'id')->sortable('desc'),
             Column::add()
                 ->title("documento")
                 ->field('documento')
