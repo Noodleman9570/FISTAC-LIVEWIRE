@@ -99,6 +99,24 @@
 
                         <div class="mb-4">
                             <x-input-label>
+                                Apellido:
+                            </x-input-label>
+            
+                            <x-text-input class="w-full" wire:model="contribuyenteCreate.apellido1st"></x-text-input>
+                            <x-input-error-jet for="contribuyenteCreate.apellido1st" />
+                        </div>
+
+                        <div class="mb-4">
+                            <x-input-label>
+                                Segundo apellido:
+                            </x-input-label>
+            
+                            <x-text-input class="w-full" wire:model="contribuyenteCreate.apellido2nd"></x-text-input>
+                            <x-input-error-jet for="contribuyenteCreate.apellido2nd" />
+                        </div>
+
+                        <div class="mb-4">
+                            <x-input-label>
                                 Direccion:
                             </x-input-label>
             

@@ -45,8 +45,7 @@ new class extends Component
                             <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                                 <i class="relative top-0 text-xl leading-normal text-blue-500 ni ni-tv-2"></i>
                             </div>
-                            <span
-                                class="ml-1 duration-300 opacity-100 pointer-events-none ease">{{ __('Dashboard') }}</span>
+                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">{{ __('Dashboard') }}</span>
                         </x-nav-link>
                     </li>
 
