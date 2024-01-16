@@ -2,11 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContribuyenteController;
-use App\Http\Controllers\TimbreFiscalController;
-use App\Http\Controllers\DenomTimbresController;
-use App\Http\Controllers\EnteTramiteController;
-use App\Http\Controllers\TramiteController;
+use App\Http\Controllers\TimbreFiscalApiController;
+use App\Http\Controllers\DenomTimbresApiController;
+use App\Http\Controllers\EnteTramiteApiController;
+use App\Http\Controllers\TramiteApiController;
+use App\Http\Controllers\UserApiController;
+use App\Http\Controllers\ContribuyenteApiController;
 
 
 /*
@@ -25,11 +26,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix'=> 'v1'],function(){
-    Route::apiResource('timbreFiscal', TimbreFiscalController::class);
-    Route::apiResource('denomTimbres', DenomTimbresController::class);
-    Route::apiResource('enteTramite', EnteTramiteController::class);
-    Route::apiResource('tramite', TramiteController::class);
-    Route::apiResource('contribuyente', ContribuyenteController::class);
-
-
+    Route::apiResource('timbreFiscal', TimbreFiscalApiController::class);
+    Route::apiResource('denomTimbres', DenomTimbresApiController::class);
+    Route::apiResource('enteTramite', EnteTramiteApiController::class);
+    Route::apiResource('tramite', TramiteApiController::class);
+    Route::apiResource('user', UserApiController::class);
+    Route::apiResource('contribuyente', ContribuyenteApiController::class);//
 });
