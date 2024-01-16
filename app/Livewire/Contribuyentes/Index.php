@@ -48,6 +48,14 @@ class Index extends Component
         $this->contribuyenteCreate->create();
     }
 
+    public function save()
+    {
+        $this->contribuyenteCreate->save();
+        // $this->contribuyente = Contribuyente::all();
+
+        $this->dispatch('post-action', 'Nuevo articulo creado');
+    }
+
     public function edit($contribuyenteId)
     {
         $this->resetValidation();

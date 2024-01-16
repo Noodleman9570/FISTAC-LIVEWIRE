@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Contribuyentes\Forms;
 
-use App\Models\Post;
+use App\Models\Contribuyente;
 use Livewire\Attributes\Validate;
 
 use Livewire\Attributes\Rule;
@@ -13,29 +13,52 @@ class ContribuyenteCreateForm extends Form
     public $req = true;
     public $open = false;
 
-    #[Rule('required')]
-    public $prefijo;
+    public $prefijo = '';
 
-    #[Rule('required|number|between:100000,100000000')]
     public $cedula;
 
-    #[Rule('required|alpha|min:3|max:25')]
     public $nombre1st;
 
-    #[Rule('required|min:3|max:25')]
+    public $nombre;
+
+    public $apellido;
+
     public $nombre2nd;
 
-    #[Rule('required|alpha|min:3|max:25')]
     public $apellido1st;
 
-    #[Rule('required|min:3|max:25')]
     public $apellido2nd;
 
-    #[Rule('required|min:10|max:100')]
     public $direccion = '';
 
-    #[Rule('required|required|regex:/^(0412|0414|0424|0416|0426|0234|0241|0251|0235|0271|0261|0271|0281|0291)\d{7}$/')]
     public $telefono;
+
+    public function rules()
+{
+  return [
+
+    'prefijo' => 'required',
+    
+    'cedula' => 'required|numeric|between:100000,100000000',
+
+    'nombre1st' => 'required|alpha|min:3|max:25',
+
+    'nombre2nd' => 'nullable|min:3|max:25', 
+
+    'nombre' => 'nullable|min:3|max:25', 
+
+    'apellido' => 'nullable|min:3|max:25', 
+
+    'apellido1st' => 'required|alpha|min:3|max:25',
+
+    'apellido2nd' => 'nullable|min:3|max:25',
+
+    'direccion' => 'required|min:10|max:100',
+
+    'telefono' => ['required', 'regex:/^(0412|0414|0424|0416|0426|0234|0241|0251|0235|0271|0261|0271|0281|0291)\\d{7}$/'],
+
+  ];
+}
 
     public function reqSwitch()
     {
@@ -49,18 +72,33 @@ class ContribuyenteCreateForm extends Form
         $this->open = true;
     }
 
-    // public function save ()
-    // {
-    //     $this->validate();
+    
 
-    //     $post = Post::create(
-    //         $this->only('title','content','category_id')
-    //     );
+    public function save ()
+    {
 
-    //     $post->tags()->attach($this->tags);
+        $this->nombre1st = self::nameSanitize($this->nombre1st);
+        $this->nombre2nd = self::nameSanitize($this->nombre2nd);
+        $this->apellido1st = self::nameSanitize($this->apellido1st);
+        $this->apellido2nd = self::nameSanitize($this->apellido2nd);
 
-    //     $this->reset();
-    // }
+        $this->nombre .= ' '.$this->nombre2nd;
+
+        $this->apellido .= ' '.$this->apellido2nd;
+
+
+        $this->validate();
+
+        
+
+
+        $contribuyente = Contribuyente::create(
+            $this->only('prefijo','cedula', 'nombre', 'apellido', 'direccion', 'telefono')
+        );
+
+
+        $this->reset();
+    }
 
     protected function messages() {
         return [

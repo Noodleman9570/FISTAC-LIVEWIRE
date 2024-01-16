@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Resources\TramiteCollection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +10,9 @@ class Contribuyente extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'prefijo','cedula','nombre1st', 'nombre2nd', 'apellido1st', 'apellido2nd', 'direccion', 'telefono'
+    ];
 
     /**
      * Get all of the comments for the Contribuyente
@@ -18,6 +21,6 @@ class Contribuyente extends Model
      */
     public function Tramites()
     {
-        return $this->hasMany(Tramite::class);
+        return $this->hasMany(TramiteCollection::class);
     }
 }

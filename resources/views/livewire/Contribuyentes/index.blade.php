@@ -8,7 +8,7 @@
 
             <livewire:Contribuyentes.Contribuyente-table />
 
-            <form wire:submit='create'>
+            <form wire:submit='save'>
                 <x-dialog-modal wire:model="contribuyenteCreate.open">
                     <x-slot name="title">
                         Actualizar post
@@ -18,8 +18,8 @@
                         <div class="mb-4">
 
                             <x-select class="w-20" wire:model="contribuyenteCreate.prefijo">
-                                <option value="" disabled>
-                                    Selecciona una categoria
+                                <option value="" selected disabled>
+                                    -
                                 </option>
                                 <option value="V">V</option>
                                 <option value="E">E</option>
