@@ -8,9 +8,6 @@
 
             <x-slot name="content">
 
-
-                 
-
                 <div class="mb-4">
                     <x-input-label>
                         Cedula:
