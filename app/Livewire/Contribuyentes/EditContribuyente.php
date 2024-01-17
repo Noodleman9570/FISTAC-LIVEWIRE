@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Contribuyentes;
 
 use App\Models\Contribuyente;
 use App\Livewire\Forms\Contribuyentes\ContribuyenteEditForm;
