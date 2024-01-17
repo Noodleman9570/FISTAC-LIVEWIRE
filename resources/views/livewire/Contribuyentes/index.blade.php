@@ -78,10 +78,8 @@
                             </div>
                         </span>
                     </div>
-
                     <x-input-error-jet for="contribuyenteCreate.nombre2nd" />
                     <x-input-error-jet for="contribuyenteCreate.nombre" />
-                    <x-input-error-jet for="contribuyenteCreate.nombre2nd" />
                     
                     <div class="mb-4">
                                 <div class="flex">
@@ -91,8 +89,9 @@
                                         </x-input-label>
                                         <x-text-input class="w-full"
                                             wire:model="contribuyenteCreate.apellido"></x-text-input>
-                                            
-                                        </span>
+                                        <x-input-error-jet for="contribuyenteCreate.apellido" />
+
+                                    </span>
 
                                     <span class="w-full">
                                         <x-input-label class="flex items-center mb-4">
@@ -106,20 +105,19 @@
                                                 class="relative cursor-pointer">
                                                 <input id="default-checkbox" name="apellido-checkbox" type="checkbox"
                                                     class=" checkbox-x w-10 h-10 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                    <i
+                                                <i
                                                     class="bi bi-x-lg checkbox-icon hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white"></i>
-                                                </label>
-                                            </div>
-                                            <div id="tooltip-apellido" role="tooltip"
+                                            </label>
+                                        </div>
+                                        <div id="tooltip-apellido" role="tooltip"
                                             class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                                             Si precionas este boton es porque no tiene segundo apellido
                                             <div class="tooltip-arrow" data-popper-arrow></div>
                                         </div>
                                     </span>
                                 </div>
+                                <x-input-error-jet class="w-full" for="contribuyenteCreate.apellido2nd" />
                             </div>
-                            <x-input-error-jet for="contribuyenteCreate.apellido" />
-                            <x-input-error-jet class="w-full" for="contribuyenteCreate.apellido2nd" />
 
                             <div class="mb-4">
                                 <x-input-label>
@@ -127,8 +125,8 @@
                                 </x-input-label>
 
                                 <x-textarea class="w-full" wire:model="contribuyenteCreate.direccion"></x-textarea>
+                                <x-input-error-jet for="contribuyenteCreate.direccion" />
                             </div>
-                            <x-input-error-jet for="contribuyenteCreate.direccion" />
 
                             <div class="mb-4">
                                 <x-input-label>
@@ -136,8 +134,8 @@
                                 </x-input-label>
 
                                 <x-text-input class="w-full" wire:model="contribuyenteCreate.telefono"></x-text-input>
+                                <x-input-error-jet for="contribuyenteCreate.telefono" />
                             </div>
-                            <x-input-error-jet for="contribuyenteCreate.telefono" />
 
                     </x-slot>
                     <x-slot name="footer">

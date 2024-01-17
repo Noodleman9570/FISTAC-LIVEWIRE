@@ -3,64 +3,67 @@
 namespace App\Livewire\Contribuyentes;
 
 use App\Models\Contribuyente;
-use App\Livewire\Forms\Contribuyentes\ContribuyenteEditForm;
+use App\Livewire\Contribuyentes\Forms\ContribuyenteEditForm;
 use LivewireUI\Modal\ModalComponent;
 
 class EditContribuyente extends ModalComponent
 {    
     public ContribuyenteEditForm $contribuyenteEdit;
 
-    public $title = 'Actualizar contribuyente';
-    public $submit = 'update';
-    public $inputs = [
-        [
-            'name' => 'cedula',
-            'type' => 'number',
-            'lable' => 'Cedula',
-            'placeholder' => 'Ingrese su cedula'
-        ],
-        [
-            'name' => 'cedula',
-            'type' => 'number',
-            'lable' => 'Cedula',
-            'placeholder' => 'Ingrese su cedula'
-        ]
-
-    ];
-    public $buttonAction = 'actualizar';
-
     public $contribuyentes;
 
-    public function actualizar()
-    {
-        echo "soy gay";
-    }
+    public $rowId;
+
+    public $prefijo;
+
+    public $cedula;
+
+    public $nombre;
+
+    public $nombre2nd;
+
+    public $apellido;
+
+    public $apellido2nd;
+
+    public $direccion = '';
+
+    public $telefono;
+
 
     public function mount()
     {
 
-        $this->contribuyentes = Contribuyente::all();
+        $contribuyente = contribuyente::find($this->rowId);
+
+        $this->prefijo = $contribuyente->prefijo;
+        $this->cedula = $contribuyente->cedula;
+        $this->nombre = $contribuyente->nombre;
+        $this->apellido = $contribuyente->apellido;
+        $this->direccion = $contribuyente->apellido;
+        $this->telefono = $contribuyente->apellido;
+
 
     }
 
-    public function edit($contribuyenteId)
-    {
-        $this->resetValidation();
-        $this->ContribuyenteEdit->edit($contribuyenteId);
-    }
+    // public function edit($contribuyenteId)
+    // {
+    //     $this->resetValidation();
+    //     $this->ContribuyenteEdit->edit($contribuyenteId);
+    // }
 
     public function update()
     {
         $this->ContribuyenteEdit->update();
         $this->contribuyentes = Contribuyente::all();
 
-        // $this->dispatch('Contribuyente-action', 'Articulo actualizado');
+        $this->dispatch('Contribuyente-action', 'Articulo actualizado');
     }
 
-    public function clickCloseModal() 
-    {
-        $this->closeModal(); 
-    }
+    // public function clickCloseModal() 
+    // {
+    //     $this->closeModal(); 
+    // }
 
     public function render()
     {

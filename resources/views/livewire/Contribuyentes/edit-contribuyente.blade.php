@@ -1,35 +1,61 @@
-<div class="relative h-[700px] z-50 bg-white rounded-lg shadow dark:bg-gray-700">
+<div>
 
-    <form>
-        <x-dialog-modal >
-            <x-slot name="title">
-                Agregar Contribuyente
-            </x-slot>
-
-            <x-slot name="content">
-
-
-                 
+    <form class="p-4 dark:bg-gray-800 dark:text-white text-black">
+                <div class="text-center">
+                    Agregar Contribuyente
+                </div>
 
                 <div class="mb-4">
                     <x-input-label>
                         Cedula:
                     </x-input-label>
+                    
                     <div class="flex mb-4">
                         <span class="mr-2">
                             <x-select class="w-20" >
-                                <option value="" disabled>
+                                <option value="">
                                     ...
                                 </option>
-                                <option value="V">V</option>
-                                <option value="E">E</option>
-                                <option value="J">J</option>
-                                <option value="G">G</option>
+
+                                <option value="V"
+                                    @if ($prefijo == 'V')
+                                        {{'selected'}}
+                                    @endif 
+                                >
+                                    V
+                                </option>
+
+
+                                <option value="E"
+                                    @if ($prefijo == 'E')
+                                        {{'selected'}}
+                                    @endif 
+                                >
+                                    E
+                                </option>
+                                
+
+                                <option value="J"
+                                    @if ($prefijo == 'J')
+                                        {{'selected'}}
+                                    @endif 
+                                >
+                                    J
+                                </option>
+
+
+                                <option value="G"
+                                    @if ($prefijo == 'G')
+                                        {{'selected'}}
+                                    @endif 
+                                >
+                                    G
+                                </option>
                             </x-select>
                         </span>
                         
                         <div class="column w-full">
-                            <x-text-input class="w-full"></x-text-input>
+                            <x-text-input class="w-full"  wire:model='cedula'></x-text-input>
                         </div>
                         
                     </div>
@@ -42,7 +68,7 @@
                                 Nombre:
                             </x-input-label>
 
-                            <x-text-input class="w-full" ></x-text-input>
+                            <x-text-input class="w-full" wire:model='nombre'></x-text-input>
                             
                         </span>
                         
@@ -127,8 +153,8 @@
                          
                     </div>
 
-            </x-slot>
-            <x-slot name="footer">
+
+   
                 <div class="flex justify-end">
                     <x-danger-button class="mr-2" >
                         Cancelar
@@ -137,8 +163,7 @@
                         Actualizar
                     </x-primary-button>
                 </div>
-            </x-slot>
-        </x-dialog-modal>
+
     </form>
 
 </div>

@@ -117,6 +117,7 @@ final class ContribuyenteTable extends PowerGridComponent
                 ->slot('<i class="bi bi-trash"></i> Eliminar')
                 ->id()
                 ->class('pg-btn-white text-xl font-bold dark:pg-btn-red dark:ring-red-600 dark:border-red-600 dark:hover:bg-red-600 dark:ring-offset-red-700 dark:text-white dark:bg-red-600 pg-btn-red ring-red-600 border-red-600 hover:bg-red-600 ring-offset-red-700 text-white bg-red-600')
+                ->openModal('Contribuyentes.EditContribuyente', ['rowId' => $row->id])
                 ->dispatch('delete', ['rowId' => $row->id])
         ];
     }
