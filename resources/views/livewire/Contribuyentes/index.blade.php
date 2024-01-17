@@ -78,8 +78,8 @@
                             </div>
                         </span>
                     </div>
-                    <x-input-error-jet for="contribuyenteCreate.nombre2nd" />
                     <x-input-error-jet for="contribuyenteCreate.nombre" />
+                    <x-input-error-jet for="contribuyenteCreate.nombre2nd" />
                     
                     <div class="mb-4">
                                 <div class="flex">
