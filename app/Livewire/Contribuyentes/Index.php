@@ -19,6 +19,7 @@ class Index extends Component
     public $req2 = true;
 
 
+
     public function mount()
     {
 

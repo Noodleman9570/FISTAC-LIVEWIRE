@@ -140,7 +140,7 @@
                     </x-slot>
                     <x-slot name="footer">
                         <div class="flex justify-end">
-                            <x-danger-button class="mr-2" wire:click="$set('postEdit.open', false)">
+                            <x-danger-button class="mr-2" wire:click="$set('contribuyenteCreate.open', false)">
                                 Cancelar
                             </x-danger-button>
                             <x-primary-button>

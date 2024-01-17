@@ -79,7 +79,7 @@
                             
                             <div class="flex -mt-4">
                                 <x-text-input class="w-full"
-                                ></x-text-input>
+                                wire:model='nombre2nd'></x-text-input>
                                 <label data-tooltip-target="tooltip-nombre" for="nombre-checkbox"
                                 class="relative cursor-pointer">
                                 <input id="default-checkbox" name="nombre-checkbox" type="checkbox"
@@ -104,7 +104,7 @@
                                     Apellido:
                                 </x-input-label>
                                 <x-text-input class="w-full"
-                                   ></x-text-input>
+                                wire:model='apellido'></x-text-input>
                                  
 
                             </span>
@@ -116,7 +116,7 @@
 
                                 <div class="flex -mt-4">
                                     <x-text-input class="w-full"
-                                        ></x-text-input>
+                                    wire:model='apellido2nd'></x-text-input>
                                     <label data-tooltip-target="tooltip-apellido" for="apellido-checkbox"
                                         class="relative cursor-pointer">
                                         <input id="default-checkbox" name="apellido-checkbox" type="checkbox"
@@ -140,7 +140,7 @@
                             Direccion:
                         </x-input-label>
 
-                        <x-textarea class="w-full" ></x-textarea>
+                        <x-textarea class="w-full" wire:model='direccion'></x-textarea>
                          
                     </div>
 
@@ -149,14 +149,14 @@
                             Telefono:
                         </x-input-label>
 
-                        <x-text-input class="w-full" ></x-text-input>
+                        <x-text-input class="w-full" wire:model='telefono'></x-text-input>
                          
                     </div>
 
 
    
                 <div class="flex justify-end">
-                    <x-danger-button class="mr-2" >
+                    <x-danger-button class="mr-2" wire:click="close">
                         Cancelar
                     </x-danger-button>
                     <x-primary-button>

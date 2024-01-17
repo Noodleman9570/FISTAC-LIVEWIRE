@@ -5,6 +5,8 @@ namespace App\Livewire\Contribuyentes;
 use App\Models\Contribuyente;
 use App\Livewire\Contribuyentes\Forms\ContribuyenteEditForm;
 use LivewireUI\Modal\ModalComponent;
+use WireElements\Traits\ClosesModals;
+
 
 class EditContribuyente extends ModalComponent
 {    
@@ -34,16 +36,27 @@ class EditContribuyente extends ModalComponent
     public function mount()
     {
 
-        $contribuyente = contribuyente::find($this->rowId);
+        $contribuyente = Contribuyente::find($this->rowId);
+
+        $arrayNames =  $this->contribuyenteEdit::splitNames($contribuyente->nombre);
+        $apellidoNames = $this->contribuyenteEdit::splitNames($contribuyente->apellido);
+        
 
         $this->prefijo = $contribuyente->prefijo;
         $this->cedula = $contribuyente->cedula;
-        $this->nombre = $contribuyente->nombre;
-        $this->apellido = $contribuyente->apellido;
-        $this->direccion = $contribuyente->apellido;
-        $this->telefono = $contribuyente->apellido;
+        $this->nombre = $arrayNames[0];
+        $this->nombre2nd = $arrayNames[1];
+        $this->apellido = $apellidoNames[0];
+        $this->apellido2nd = $apellidoNames[1];
+        $this->direccion = $contribuyente->direccion;
+        $this->telefono = $contribuyente->telefono;
 
 
+    }
+
+    public function close() 
+    {
+    $this->closeModal(); 
     }
 
     // public function edit($contribuyenteId)

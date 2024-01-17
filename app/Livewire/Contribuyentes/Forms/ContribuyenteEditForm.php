@@ -9,9 +9,6 @@ use Livewire\Form;
 
 class ContribuyenteEditForm extends Form
 {
-
-    
-
     public $contribuyenteId = '';
     public $open = false;
 

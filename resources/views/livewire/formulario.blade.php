@@ -102,7 +102,7 @@
         <x-slot name="content">
             <div class="mb-4">
                 <x-input-label>
-                    Nombre:e
+                    Nombre:
                 </x-input-label>
                 <x-text-input class="w-full" wire:model="postEdit.title"></x-text-input>
                 <x-input-error-jet for="postEdit.title" />
