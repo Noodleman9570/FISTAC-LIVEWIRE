@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\ConceptoTributo;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
@@ -17,10 +17,10 @@ class EnteTramiteFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => $faker->word,
-            'descripcion' => $faker->text,
-            'total_ut' => $faker->numberBetween(1, 1000),
-            'concepto_tributo_id' => null,
+            'nombre' => fake()->word,
+            'descripcion' => fake()->text,
+            'total_ut' =>fake()->numberBetween(1, 1000),
+            'concepto_tributo_id' => ConceptoTributo::inRandomOrder()->first()->id,
         ];
     }
 }

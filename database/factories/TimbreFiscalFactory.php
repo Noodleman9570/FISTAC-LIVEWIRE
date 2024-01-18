@@ -19,7 +19,7 @@ class TimbreFiscalFactory extends Factory
     public function definition(): array
     {
         return [
-            'status' => $faker->randomElement(['generado', 'asignado', 'anulado', 'empleado']),
+            'status' => 'asignado',
             'denominacion_id' => DenomTimbre::factory(),
             'tramite_id' => Tramite::factory(),
         ];

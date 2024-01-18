@@ -3,6 +3,7 @@
 namespace App\Livewire\Contribuyentes\Forms;
 
 use App\Models\Contribuyente;
+use Hamcrest\Type\IsInteger;
 use Livewire\Attributes\Modelable;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Rule;
@@ -14,11 +15,15 @@ class ContribuyenteEditForm extends Form
     public $contribuyenteId = '';
     public $open = false;
     public $refresh = false;
+
+    public $selectedOption = '';
     // protected $listeners = ['actualiza' => 'refresh'];
 
     public $prefijo = '';
 
     public $cedula;
+
+    public $oldCedula;
 
     public $nombre;
 
@@ -38,7 +43,25 @@ class ContribuyenteEditForm extends Form
 
             'prefijo' => 'required',
 
-            'cedula' => ['required', 'numeric', 'between:100000,100000000', 'unique:' . Contribuyente::class],
+            'cedula' => ['required', 'integer', 'between:100000,100000000',
+
+            function ($attribute, $value, $fail) {
+
+                if(($this->oldCedula != $value) && is_int($value))
+                {
+
+                    $existingContribuyente = Contribuyente::wwwwhere('cedula', $value)->first();
+
+                    if ($existingContribuyente) {
+                        $fail('La cédula ya está registrada en la base de datos.');
+                    }
+                }
+            
+                
+            }
+
+        
+        ],
 
             'nombre' => 'required|alpha|min:3|max:25',
 
@@ -56,41 +79,52 @@ class ContribuyenteEditForm extends Form
     }
 
 
-    // public function edit($contribuyenteId)
-    // {
+    public function edit($contribuyenteId)
+    {
 
-    //     $this->open = true;
-    //     $this->contribuyenteId=$contribuyenteId;
+        $this->contribuyenteId = $contribuyenteId;
 
-    //     $this->contribuyenteId = $contribuyenteId;
+        $this->resetValidation();
 
-    //     $contribuyente = contribuyente::find($contribuyenteId);
+        $contribuyente = Contribuyente::find($this->contribuyenteId);
 
-    //     $this->cedula = $contribuyente->cedula;
-    //     $this->nombre = $contribuyente->nombre;
-    //     $this->apellido = $contribuyente->apellido;
-    //     $this->direccion = $contribuyente->apellido;
-    //     $this->telefono = $contribuyente->apellido;
+        $arrayNames =  $this->splitNames($contribuyente->nombre);
+        $apellidoNames = $this->splitNames($contribuyente->apellido);
+        
+        $this->prefijo = $contribuyente->prefijo;
+        $this->oldCedula = $contribuyente->cedula;
+        $this->cedula = $contribuyente->cedula;
+        $this->nombre = $arrayNames[0];
+        $this->nombre2nd = $arrayNames[1];
+        $this->apellido = $apellidoNames[0];
+        $this->apellido2nd = $apellidoNames[1];
+        $this->direccion = $contribuyente->direccion;
+        $this->telefono = $contribuyente->telefono;
 
-    // }
 
-    // public function update()
-    // {
+    }
+
+    public function update()
+    {
+
+        $this->validate();
+
+        $this->nombre = $this->nameSanitize($this->nombre);
+        $this->nombre2nd = $this->nameSanitize($this->nombre2nd);
+        $this->apellido = $this->nameSanitize($this->apellido);
+        $this->apellido2nd = $this->nameSanitize($this->apellido2nd);
+
+        $this->nombre .= ' ' . $this->nombre2nd;
+
+        $this->apellido .= ' ' . $this->apellido2nd;
+
+        $contribuyente = Contribuyente::find($this->contribuyenteId);
+        $contribuyente->update(
+            $this->only('prefijo', 'cedula', 'nombre', 'apellido', 'direccion', 'telefono')
+        );
 
         
-    // }
+        
+    }
 
-
-    // public function save ()
-    // {
-    //     $this->validate();
-
-    //     $contribuyente = contribuyente::create(
-    //         $this->only('title','content','category_id')
-    //     );
-
-    //     $contribuyente->tags()->attach($this->tags);
-
-    //     $this->reset();
-    // }
 }

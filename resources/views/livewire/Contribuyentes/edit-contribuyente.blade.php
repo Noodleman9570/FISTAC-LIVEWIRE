@@ -4,7 +4,6 @@
                 <div class="text-center">
                     Agregar Contribuyente
                 </div>
-
                 <div class="mb-4">
                     <x-input-label>
                         Cedula:
@@ -12,42 +11,33 @@
                     
                     <div class="flex mb-4">
                         <span class="mr-2">
-                            <x-select class="w-20" >
+                            <x-select wire:model='contribuyenteEdit.prefijo' class="w-20" >
                                 <option value="">
                                     ...
                                 </option>
 
                                 <option value="V"
-                                    @if ($prefijo == 'V')
-                                        {{'selected'}}
-                                    @endif 
                                 >
                                     V
                                 </option>
 
 
                                 <option value="E"
-                                    @if ($prefijo == 'E')
-                                        {{'selected'}}
-                                    @endif 
+                                   
                                 >
                                     E
                                 </option>
                                 
 
                                 <option value="J"
-                                    @if ($prefijo == 'J')
-                                        {{'selected'}}
-                                    @endif 
+                                   
                                 >
                                     J
                                 </option>
 
 
                                 <option value="G"
-                                    @if ($prefijo == 'G')
-                                        {{'selected'}}
-                                    @endif 
+                                    
                                 >
                                     G
                                 </option>
@@ -55,7 +45,7 @@
                         </span>
                         
                         <div class="column w-full">
-                            <x-text-input class="w-full"  wire:model='cedula'></x-text-input>
+                            <x-text-input class="w-full" wire:model='contribuyenteEdit.cedula'></x-text-input>
                         </div>
                         
                     </div>
@@ -70,7 +60,7 @@
                                 Nombre:
                             </x-input-label>
 
-                            <x-text-input class="w-full" wire:model='nombre'></x-text-input>
+                            <x-text-input class="w-full" wire:model='contribuyenteEdit.nombre'></x-text-input>
                             
                         </span>
                         
@@ -81,7 +71,7 @@
                             
                             <div class="flex -mt-4">
                                 <x-text-input class="w-full"
-                                wire:model='nombre2nd'></x-text-input>
+                                wire:model='contribuyenteEdit.nombre2nd'></x-text-input>
                                 <label data-tooltip-target="tooltip-nombre" for="nombre-checkbox"
                                 class="relative cursor-pointer">
                                 <input id="default-checkbox" name="nombre-checkbox" type="checkbox"
@@ -107,7 +97,7 @@
                                     Apellido:
                                 </x-input-label>
                                 <x-text-input class="w-full"
-                                wire:model='apellido'></x-text-input>
+                                wire:model='contribuyenteEdit.apellido'></x-text-input>
                                  
 
                             </span>
@@ -119,7 +109,7 @@
 
                                 <div class="flex -mt-4">
                                     <x-text-input class="w-full"
-                                    wire:model='apellido2nd'></x-text-input>
+                                    wire:model='contribuyenteEdit.apellido2nd'></x-text-input>
                                     <label data-tooltip-target="tooltip-apellido" for="apellido-checkbox"
                                         class="relative cursor-pointer">
                                         <input id="default-checkbox" name="apellido-checkbox" type="checkbox"
@@ -146,7 +136,7 @@
                             Direccion:
                         </x-input-label>
 
-                        <x-textarea class="w-full" wire:model='direccion'></x-textarea>
+                        <x-textarea class="w-full" wire:model='contribuyenteEdit.direccion'></x-textarea>
                         <x-input-error-jet for="contribuyenteEdit.direccion" />
                     </div>
 
@@ -155,7 +145,7 @@
                             Telefono:
                         </x-input-label>
 
-                        <x-text-input class="w-full" wire:model='telefono'></x-text-input>
+                        <x-text-input class="w-full" wire:model='contribuyenteEdit.telefono'></x-text-input>
                         <x-input-error-jet for="contribuyenteEdit.telefono" />
                     </div>
 
@@ -173,3 +163,4 @@
     </form>
 
 </div>
+

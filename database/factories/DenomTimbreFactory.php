@@ -17,9 +17,9 @@ class DenomTimbreFactory extends Factory
     public function definition(): array
     {
         return [
-            'cant_ut' => $faker->numberBetween(1, 100),
-            'img' => $faker->text, 
-            'tipo' => $faker->randomElement(['fisico', 'electronico']),
+            'cant_ut' => fake()->numberBetween(1, 100),
+            'img' => fake()->text, 
+            'tipo' => fake()->randomElement(['fisico', 'electronico']),
         ];
     }
 }

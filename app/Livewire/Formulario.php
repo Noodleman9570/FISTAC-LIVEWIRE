@@ -32,7 +32,6 @@ class Formulario extends Component
     
     public PostEditForm $postEdit;
 
-
     public $posts;
     
     //Ciclo de vida de un componente

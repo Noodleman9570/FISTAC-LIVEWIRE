@@ -12,7 +12,7 @@ class AsigTimElecController extends Controller
      */
     public function index()
     {
-        //
+        return view('AsigTimElec.index');
     }
 
     /**

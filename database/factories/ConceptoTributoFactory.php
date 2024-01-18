@@ -1,15 +1,14 @@
 <?php
 
 namespace Database\Factories;
-use App\Models\Contribuyente;
-use App\Models\EnteTramite;
 
+use App\Models\Categoria;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ConceptoTributo>
  */
-class TramiteFactory extends Factory
+class ConceptoTributoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,9 +18,9 @@ class TramiteFactory extends Factory
     public function definition(): array
     {
         return [
+            'categoria_id' => Categoria::inRandomOrder()->first()->id,
+            'nombre' => fake()->word,
             'descripcion' => fake()->text,
-            'contribuyente_id' => Contribuyente::factory(),
-            'ente_tramite_id' => EnteTramite::factory()
         ];
     }
 }
