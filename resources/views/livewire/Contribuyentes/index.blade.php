@@ -89,7 +89,7 @@
                                         </x-input-label>
                                         <x-text-input class="w-full"
                                             wire:model="contribuyenteCreate.apellido"></x-text-input>
-                                        <x-input-error-jet for="contribuyenteCreate.apellido" />
+                                        
 
                                     </span>
 
@@ -116,6 +116,7 @@
                                         </div>
                                     </span>
                                 </div>
+                                <x-input-error-jet for="contribuyenteCreate.apellido" />
                                 <x-input-error-jet class="w-full" for="contribuyenteCreate.apellido2nd" />
                             </div>
 

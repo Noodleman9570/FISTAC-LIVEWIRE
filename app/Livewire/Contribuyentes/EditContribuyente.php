@@ -32,9 +32,32 @@ class EditContribuyente extends ModalComponent
 
     public $telefono;
 
+    public function rules()
+    {
+        return [
+
+            'prefijo' => 'required',
+
+            'cedula' => ['required', 'numeric', 'between:100000,100000000', 'unique:' . Contribuyente::class],
+
+            'nombre' => 'required|alpha|min:3|max:25',
+
+            'nombre2nd' => 'min:3|max:25',
+
+            'apellido' => 'required|alpha|min:3|max:25',
+
+            'apellido2nd' => 'min:3|max:25',
+
+            'direccion' => 'required|min:10|max:100',
+
+            'telefono' => ['required', 'regex:/^(0412|0414|0424|0416|0426|0234|0241|0251|0235|0271|0261|0271|0281|0291)\\d{7}$/'],
+
+        ];
+    }
 
     public function mount()
     {
+        $this->resetValidation();
 
         $contribuyente = Contribuyente::find($this->rowId);
 
@@ -67,10 +90,29 @@ class EditContribuyente extends ModalComponent
 
     public function update()
     {
-        $this->ContribuyenteEdit->update();
-        $this->contribuyentes = Contribuyente::all();
+        // $this->dispatchBrowserEvent('actualiza');
+        // dd($this->cedula);
+        // $this->validate();
 
-        $this->dispatch('Contribuyente-action', 'Articulo actualizado');
+        $this->nombre = $this->contribuyenteEdit::nameSanitize($this->nombre);
+        $this->nombre2nd = $this->contribuyenteEdit::nameSanitize($this->nombre2nd);
+        $this->apellido = $this->contribuyenteEdit::nameSanitize($this->apellido);
+        $this->apellido2nd = $this->contribuyenteEdit::nameSanitize($this->apellido2nd);
+
+        $this->nombre .= ' ' . $this->nombre2nd;
+
+        $this->apellido .= ' ' . $this->apellido2nd;
+
+        $contribuyente = Contribuyente::find($this->rowId);
+        $contribuyente->update(
+            $this->only('cedula', 'nombre', 'apellido', 'direccion', 'telefono')
+        );
+
+        $this->reset();
+        $this->close();
+
+        $this->dispatch('registroCreado');
+        
     }
 
     // public function clickCloseModal() 

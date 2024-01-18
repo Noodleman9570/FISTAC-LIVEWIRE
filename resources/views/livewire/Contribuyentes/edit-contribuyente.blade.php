@@ -1,6 +1,6 @@
 <div>
 
-    <form class="p-4 dark:bg-gray-800 dark:text-white text-black">
+    <form class="p-4 dark:bg-gray-800 dark:text-white text-black" wire:submit='update'>
                 <div class="text-center">
                     Agregar Contribuyente
                 </div>
@@ -59,6 +59,8 @@
                         </div>
                         
                     </div>
+                    <x-input-error-jet for="contribuyenteEdit.prefijo" />
+                    <x-input-error-jet for="contribuyenteEdit.cedula" />
                      
                      
                     
@@ -95,7 +97,8 @@
                     </div>
                 </span>
             </div>
-             
+            <x-input-error-jet for="contribuyenteEdit.nombre2nd" />
+            <x-input-error-jet for="contribuyenteEdit.nombre" />
             
             <div class="mb-4">
                         <div class="flex">
@@ -135,13 +138,16 @@
                          
                     </div>
 
+                    <x-input-error-jet for="contribuyenteEdit.apellido" />
+                    <x-input-error-jet class="w-full" for="contribuyenteEdit.apellido2nd" />
+
                     <div class="mb-4">
                         <x-input-label>
                             Direccion:
                         </x-input-label>
 
                         <x-textarea class="w-full" wire:model='direccion'></x-textarea>
-                         
+                        <x-input-error-jet for="contribuyenteEdit.direccion" />
                     </div>
 
                     <div class="mb-4">
@@ -150,7 +156,7 @@
                         </x-input-label>
 
                         <x-text-input class="w-full" wire:model='telefono'></x-text-input>
-                         
+                        <x-input-error-jet for="contribuyenteEdit.telefono" />
                     </div>
 
 
@@ -159,7 +165,7 @@
                     <x-danger-button class="mr-2" wire:click="close">
                         Cancelar
                     </x-danger-button>
-                    <x-primary-button>
+                    <x-primary-button >
                         Actualizar
                     </x-primary-button>
                 </div>

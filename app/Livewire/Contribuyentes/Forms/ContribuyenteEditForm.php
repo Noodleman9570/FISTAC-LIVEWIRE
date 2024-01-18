@@ -3,6 +3,8 @@
 namespace App\Livewire\Contribuyentes\Forms;
 
 use App\Models\Contribuyente;
+use Livewire\Attributes\Modelable;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
@@ -11,53 +13,72 @@ class ContribuyenteEditForm extends Form
 {
     public $contribuyenteId = '';
     public $open = false;
+    public $refresh = false;
+    // protected $listeners = ['actualiza' => 'refresh'];
 
-    #[Rule('required')]
+    public $prefijo = '';
+
     public $cedula;
 
-    #[Rule('required')]
     public $nombre;
 
-    #[Rule('required')]
-    public $apellido = '';
-    
-    #[Rule('required')]
+    public $nombre2nd;
+
+    public $apellido;
+
+    public $apellido2nd;
+
     public $direccion = '';
 
-    #[Rule('required')]
-    public $telefono = '';
+    public $telefono;
 
-
-    public function edit($contribuyenteId)
+    public function rules()
     {
+        return [
 
-        $this->open = true;
-        $this->contribuyenteId=$contribuyenteId;
+            'prefijo' => 'required',
 
-        $this->contribuyenteId = $contribuyenteId;
+            'cedula' => ['required', 'numeric', 'between:100000,100000000', 'unique:' . Contribuyente::class],
 
-        $contribuyente = contribuyente::find($contribuyenteId);
+            'nombre' => 'required|alpha|min:3|max:25',
 
-        $this->cedula = $contribuyente->cedula;
-        $this->nombre = $contribuyente->nombre;
-        $this->apellido = $contribuyente->apellido;
-        $this->direccion = $contribuyente->apellido;
-        $this->telefono = $contribuyente->apellido;
+            'nombre2nd' => 'min:3|max:25',
 
+            'apellido' => 'required|alpha|min:3|max:25',
+
+            'apellido2nd' => 'min:3|max:25',
+
+            'direccion' => 'required|min:10|max:100',
+
+            'telefono' => ['required', 'regex:/^(0412|0414|0424|0416|0426|0234|0241|0251|0235|0271|0261|0271|0281|0291)\\d{7}$/'],
+
+        ];
     }
 
-    public function update()
-    {
 
-        $this->validate();
-        $contribuyente = contribuyente::find($this->contribuyenteId);
+    // public function edit($contribuyenteId)
+    // {
 
-        $contribuyente->update(
-            $this->only('cedula', 'nombre', 'apellido', 'direccion', 'telefono')
-        );
+    //     $this->open = true;
+    //     $this->contribuyenteId=$contribuyenteId;
 
-        $this->reset();
-    }
+    //     $this->contribuyenteId = $contribuyenteId;
+
+    //     $contribuyente = contribuyente::find($contribuyenteId);
+
+    //     $this->cedula = $contribuyente->cedula;
+    //     $this->nombre = $contribuyente->nombre;
+    //     $this->apellido = $contribuyente->apellido;
+    //     $this->direccion = $contribuyente->apellido;
+    //     $this->telefono = $contribuyente->apellido;
+
+    // }
+
+    // public function update()
+    // {
+
+        
+    // }
 
 
     // public function save ()
