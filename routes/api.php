@@ -25,6 +25,25 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Laravel
+Route::post('/login', function (Request $request) {
+    $credentials = $request->only('email', 'password');
+
+    if (Auth::attempt($credentials)) {
+        // Autenticación exitosa, generar y devolver token
+        $token = Str::random(60);
+        $request->user()->forceFill([
+            'api_token' => hash('sha256', $token),
+        ])->save();
+
+        return ['token' => $token];
+    }
+
+    // Autenticación fallida
+    return response()->json(['error' => 'Unauthenticated.'], 401);
+});
+
+
 Route::group(['prefix'=> 'v1'],function(){
     Route::apiResource('timbreFiscal', TimbreFiscalApiController::class);
     Route::apiResource('denomTimbres', DenomTimbresApiController::class);
