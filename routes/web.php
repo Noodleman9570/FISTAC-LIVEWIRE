@@ -34,6 +34,7 @@ use App\Models\Contribuyente;
 
 Route::view('/', 'welcome');
 
+// Rutas de los modulos
 Route::resource('AsigTimElec', AsigTimElecController::class);
 Route::resource('AsigTimFis', AsigTimFisController::class);
 Route::resource('GenTimFis', GenTimFisController::class);

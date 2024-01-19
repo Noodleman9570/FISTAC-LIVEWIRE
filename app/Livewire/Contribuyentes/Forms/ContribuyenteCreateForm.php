@@ -12,20 +12,14 @@ class ContribuyenteCreateForm extends Form
 {
     public $open = false;
 
+    //Atributtes
     public $prefijo = '';
-
     public $cedula;
-
     public $nombre;
-
     public $nombre2nd;
-
     public $apellido;
-
     public $apellido2nd;
-
     public $direccion = '';
-
     public $telefono;
 
     public function rules()
