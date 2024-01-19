@@ -9,6 +9,7 @@ use App\Livewire\Formulario;
 use App\Livewire\TableComponent;
 
 //Modulos del sistema
+use App\Http\Controllers\TimbresFiscalesController;
 use App\Http\Controllers\AsigTimElecController;
 use App\Http\Controllers\GenTimFisController;
 use App\Http\Controllers\AsigTimFisController;
@@ -35,6 +36,7 @@ use App\Models\Contribuyente;
 Route::view('/', 'welcome');
 
 // Rutas de los modulos
+Route::resource('TimbresFiscales', TimbresFiscalesController::class);
 Route::resource('AsigTimElec', AsigTimElecController::class);
 Route::resource('AsigTimFis', AsigTimFisController::class);
 Route::resource('GenTimFis', GenTimFisController::class);
