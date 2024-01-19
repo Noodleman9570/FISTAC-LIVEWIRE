@@ -154,13 +154,6 @@
 
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            tippy('[data-tippy-content]', {
-                placement: 'top',
-                theme: 'light',
-            });
-        });
-    </script>
+  
 
 </div>

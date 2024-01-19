@@ -10,7 +10,6 @@ use LivewireUI\Modal\ModalComponent;
 
 class Index extends Component
 {
-    // public ContribuyenteEditForm $contribuyenteEdit;
 
     public ContribuyenteCreateForm $contribuyenteCreate;
 
@@ -48,21 +47,6 @@ class Index extends Component
         $this->req = !$this->req;
 
     }
-
-    // public function edit($contribuyenteId)
-    // {
-    //     $this->resetValidation();
-    //     $this->ContribuyenteEdit->edit($contribuyenteId);
-    // }
-
-    // public function update()
-    // {
-    //     $this->ContribuyenteEdit->update();
-    //     $this->contribuyentes = Contribuyente::all();
-
-    //     // $this->dispatch('Contribuyente-action', 'Articulo actualizado');
-    // }
-
     public function clickCloseModal() 
     {
         $this->closeModal(); 

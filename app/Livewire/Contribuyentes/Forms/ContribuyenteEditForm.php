@@ -16,25 +16,16 @@ class ContribuyenteEditForm extends Form
     public $open = false;
     public $refresh = false;
 
-    public $selectedOption = '';
-    // protected $listeners = ['actualiza' => 'refresh'];
 
+    //Atributtes
     public $prefijo = '';
-
     public $cedula;
-
     public $oldCedula;
-
     public $nombre;
-
     public $nombre2nd;
-
     public $apellido;
-
     public $apellido2nd;
-
     public $direccion = '';
-
     public $telefono;
 
     public function rules()
