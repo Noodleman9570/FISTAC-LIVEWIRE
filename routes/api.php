@@ -51,5 +51,5 @@ Route::group(['prefix'=> 'v1'],function(){
     Route::apiResource('enteTramite', EnteTramiteApiController::class);
     Route::apiResource('tramite', TramiteApiController::class);
     Route::apiResource('user', UserApiController::class);
-    Route::apiResource('contribuyente', ContribuyenteApiController::class);//
+    Route::apiResource('contribuyente', ContribuyenteApiController::class);
 });
