@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TimbreFiscalApiController;
@@ -50,5 +51,5 @@ Route::group(['prefix'=> 'v1'],function(){
     Route::apiResource('enteTramite', EnteTramiteApiController::class);
     Route::apiResource('tramite', TramiteApiController::class);
     Route::apiResource('user', UserApiController::class);
-    Route::apiResource('contribuyente', ContribuyenteApiController::class);//
+    Route::apiResource('contribuyente', ContribuyenteApiController::class);
 });
