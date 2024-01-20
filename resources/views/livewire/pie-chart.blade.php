@@ -76,17 +76,6 @@
 
 <script>
 
-window.addEventListener('resize', handleResize);
-
-function handleResize() {
-  const windowWidth = window.innerWidth;
-  const isSmallScreen = windowWidth < 200 ? '400px' : '100%' ;
-
-  console.log(windowWidth);
-
-}
-
-handleResize();
 
 
   // ApexCharts options and config
@@ -96,8 +85,8 @@ handleResize();
           series: [52.8, 26.8, 20.4],
           colors: ["#1C64F2", "#16BDCA", "#9061F9"],
           chart: {
-            height: 350,
-            width: isSmallScreen,
+            height: "110%",
+            width: "110%",
             type: "pie",
           },
           stroke: {

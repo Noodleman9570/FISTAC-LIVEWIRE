@@ -8,7 +8,6 @@ use Livewire\Component;
 class PieChart extends Component
 {
 
-    public $ancho;
 
     public function render()
     {
