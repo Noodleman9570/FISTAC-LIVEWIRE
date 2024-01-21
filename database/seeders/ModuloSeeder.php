@@ -15,10 +15,10 @@ class ModuloSeeder extends Seeder
     {
         //Modulo de Asignacion de Timbres Electronicos
         $modAsigTimElec = new Modulo;
-        $modAsigTimElec->modulo = "Asignación Timbre Electrónico";
+        $modAsigTimElec->modulo = "Timbres Fiscales";
         $modAsigTimElec->icon = "bi bi-file-break";
-        $modAsigTimElec->ruta = "AsigTimElec.index";
-        $modAsigTimElec->descripcion = "Módulo para Generar y Asignar Timbres Electrónico en Taquilla";
+        $modAsigTimElec->ruta = "TimbresFiscales.index";
+        $modAsigTimElec->descripcion = "Módulo de timbres fiscales";
         $modAsigTimElec->save();
 
         $modGenTimFis = new Modulo;

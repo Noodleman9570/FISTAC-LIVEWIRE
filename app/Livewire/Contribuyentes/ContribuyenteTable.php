@@ -67,6 +67,8 @@ final class ContribuyenteTable extends PowerGridComponent
     }
 
 
+
+
     
     public function columns(): array
     {
@@ -107,9 +109,29 @@ final class ContribuyenteTable extends PowerGridComponent
     public function actions(\App\Models\Contribuyente $row): array
     {
         return [
-            
-            
+            Button::add('edit')
+            ->slot('<i class="bi bi-pencil-square"></i> Editar')
+            ->id()
+            ->class('pg-btn-white text-xl font-bold dark:pg-btn-yellow dark:ring-yellow-400 dark:border-yellow-400 dark:hover:bg-yellow-600 dark:ring-offset-yellow-700 dark:text-white dark:bg-yellow-400 pg-btn-yellow ring-yellow-400 border-yellow-400 hover:bg-yellow-600 ring-offset-yellow-700 text-white bg-yellow-400')
+            ->openModal('Contribuyentes.EditContribuyente', ['rowId' => $row->id]),
+
+            Button::add('delete')
+            ->slot('<i class="bi bi-trash"></i> Eliminar')
+            ->id()
+            ->class('pg-btn-white text-xl font-bold dark:pg-btn-red dark:ring-red-600 dark:border-red-600 dark:hover:bg-red-600 dark:ring-offset-red-700 dark:text-white dark:bg-red-600 pg-btn-red ring-red-600 border-red-600 hover:bg-red-600 ring-offset-red-700 text-white bg-red-600')
+            ->openModal('Contribuyentes.DeleteContribuyente', ['rowId' => $row->id])
         ];
     }
 
+    /*
+    public function actionRules($row): array
+    {
+       return [
+            // Hide button edit for ID 1
+            Rule::button('edit')
+                ->when(fn($row) => $row->id === 1)
+                ->hide(),
+        ];
+    }
+    */
 }

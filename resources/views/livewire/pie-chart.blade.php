@@ -1,8 +1,8 @@
 <div>
     
-<div class="max-w-sm w-full bg-white rounded-lg shadow dark:bg-slate-850 p-4 md:p-6">
+<div class=" bg-white rounded-2xl shadow dark:bg-slate-850 p-4 md:p-6">
 
-  <div class="flex justify-between items-start w-full">
+  <div class="flex justify-between items-stary">
       <div class="flex-col items-center">
         <div class="flex items-center mb-1">
             <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white me-1">Website traffic</h5>
@@ -70,7 +70,7 @@
   </div>
 
   <!-- Line Chart -->
-  <div class="py-6" id="pie-chart"></div>
+  <div class="py-8" id="pie-chart"></div>
 
 </div>
 
@@ -86,7 +86,7 @@
           colors: ["#1C64F2", "#16BDCA", "#9061F9"],
           chart: {
             height: "110%",
-            width: "110%",
+            width: "100%",
             type: "pie",
           },
           stroke: {
