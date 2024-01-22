@@ -7,6 +7,7 @@ use App\Livewire\CreatePost;
 use App\Livewire\Dashboard;
 use App\Livewire\Formulario;
 use App\Livewire\TableComponent;
+use App\Http\Controllers\PDFController;
 
 //Modulos del sistema
 use App\Http\Controllers\TimbresFiscalesController;
@@ -48,6 +49,8 @@ Route::resource('Ley', LeyController::class);
 
 
 // Route::resource('denomTimbres', DenomTimbresController::class);
+
+Route::get('pdf', [PdfController::class, 'index']);
 
 
 Route::view('dashboard', 'dashboard')
