@@ -41,7 +41,7 @@ class ContribuyenteEditForm extends Form
                 if(($this->oldCedula != $value) && is_int($value))
                 {
 
-                    $existingContribuyente = Contribuyente::wwwwhere('cedula', $value)->first();
+                    $existingContribuyente = Contribuyente::where('cedula', $value)->first();
 
                     if ($existingContribuyente) {
                         $fail('La cédula ya está registrada en la base de datos.');

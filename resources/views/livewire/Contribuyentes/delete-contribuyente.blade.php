@@ -1,4 +1,4 @@
-<div class="bg-[#374151]">
+<div class="dark:bg-[#374151] bg-white">
     <div class="relative p-4 w-full max-w-md max-h-full">
         <div class="relative bg-white rounded-lg  dark:bg-gray-700">
             <button wire:click="close" type="button" class="absolute top-0 end-0 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="popup-modal">

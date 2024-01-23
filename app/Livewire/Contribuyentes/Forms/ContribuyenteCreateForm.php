@@ -4,8 +4,6 @@ namespace App\Livewire\Contribuyentes\Forms;
 
 use App\Models\Contribuyente;
 use Livewire\Attributes\Validate;
-
-use Livewire\Attributes\Rule;
 use Livewire\Form;
 
 class ContribuyenteCreateForm extends Form
@@ -13,9 +11,10 @@ class ContribuyenteCreateForm extends Form
     public $open = false;
 
     //Atributtes
+    #[Validate]
     public $prefijo = '';
     public $cedula;
-    public $nombre;
+    public $nombre = '';
     public $nombre2nd;
     public $apellido;
     public $apellido2nd;

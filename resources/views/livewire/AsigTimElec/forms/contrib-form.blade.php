@@ -21,12 +21,15 @@
                                 <option value="J">J</option>
                                 <option value="G">G</option>
                             </x-select>
+                            
                         </span>
 
                         <div class="column w-full">
-                            <x-text-input class="w-full" wire:model="contribuyenteCreate.cedula"
+                            <x-text-input class="w-full mb-2" wire:model="contribuyenteCreate.cedula"
                                 wire:keydown='contribSearch'></x-text-input>
+                                <x-input-error-jet for="contribuyenteCreate.cedula" />
                         </div>
+                        
 
                     </div>
 
@@ -40,10 +43,10 @@
                             Nombre:
                         </x-input-label>
 
-                        <x-text-input class="w-full" wire:model="contribuyenteCreate.nombre"
-                            :disabled="$disabled" wire:keydown='contribSearch'></x-text-input>
+                        <x-text-input class="w-full mb-2" wire:model="contribuyenteCreate.nombre"
+                            :disabled="$disabled" ></x-text-input>
 
-
+                            <x-input-error-jet for="contribuyenteCreate.nombre" />
                     </span>
                 </div>
             </div>
@@ -55,9 +58,9 @@
                             Segundo nombre:
                         </x-input-label>
 
-                        <x-text-input class="w-full" :disabled="$disabled"
+                        <x-text-input class="w-full mb-2" :disabled="$disabled"
                             wire:model="contribuyenteCreate.nombre2nd"></x-text-input>
-
+                            <x-input-error-jet for="contribuyenteCreate.nombre2nd" />
                     </span>
                 </div>
             </div>
@@ -69,9 +72,9 @@
                             Telefono:
                         </x-input-label>
 
-                        <x-text-input class="w-full" :disabled="$disabled"
+                        <x-text-input class="w-full mb-2" :disabled="$disabled"
                             wire:model="contribuyenteCreate.telefono"></x-text-input>
-
+                        <x-input-error-jet for="contribuyenteCreate.telefono" />
                     </span>
                 </div>
             </div>
@@ -83,9 +86,9 @@
                             Apellido:
                         </x-input-label>
 
-                        <x-text-input class="w-full" :disabled="$disabled"
+                        <x-text-input class="w-full mb-2" :disabled="$disabled"
                             wire:model="contribuyenteCreate.apellido"></x-text-input>
-
+                            <x-input-error-jet for="contribuyenteCreate.apellido" />
                     </span>
                 </div>
             </div>
@@ -97,9 +100,9 @@
                             Segundo apellido:
                         </x-input-label>
 
-                        <x-text-input class="w-full" :disabled="$disabled"
+                        <x-text-input class="w-full mb-2" :disabled="$disabled"
                             wire:model="contribuyenteCreate.apellido2nd"></x-text-input>
-
+                            <x-input-error-jet for="contribuyenteCreate.apellido2nd" />
                     </span>
                 </div>
             </div>
@@ -110,7 +113,7 @@
                         Direccion:
                     </x-input-label>
 
-                    <x-textarea class="w-full" :disabled="$disabled"
+                    <x-textarea class="w-full mb-2" :disabled="$disabled"
                         wire:model="contribuyenteCreate.direccion"></x-textarea>
                     <x-input-error-jet for="contribuyenteCreate.direccion" />
                 </div>

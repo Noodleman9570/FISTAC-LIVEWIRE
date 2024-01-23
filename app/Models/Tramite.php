@@ -9,6 +9,12 @@ class Tramite extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'descripcion', 
+        'contribuyente_id',
+        'ente_tramite_id'
+    ];
+
     /**
      * Get the user that owns the Tramite
      *

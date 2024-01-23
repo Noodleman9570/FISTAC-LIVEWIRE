@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tramites', function (Blueprint $table) {
             $table->id();
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
             $table->foreignId('contribuyente_id')
                 ->nullable()
                 ->constrained('contribuyentes')
