@@ -81,7 +81,7 @@ final class ContribuyenteTable extends PowerGridComponent
             // Column::make('Cedula','cedula')->searchable(),
             Column::make('Nombre','nombre')->searchable(),
             Column::make('Apellido','apellido')->searchable(),
-            Column::make('Telefono','telefono')->searchable(),
+            Column::make('Telefono','telefono'),
             
             Column::action('Action')
         ];

@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Livewire\Contribuyentes\Forms\ContribuyenteCreateForm;
 use Livewire\Attributes\On;
 use App\Models\Contribuyente;
+use Livewire\Attributes\Validate;
 
 class ContribForm extends Component
 {
@@ -13,6 +14,16 @@ class ContribForm extends Component
     public ContribuyenteCreateForm $contribuyenteCreate;
     public $contribuyente;
     public $disabled = false;
+    public $contribuyenteExists = false;
+
+
+
+    #[On('contrib-save')]
+    public function save()
+    {
+       $this->contribuyenteCreate->save();
+        dd('guardado');
+    }
 
     public function clearForm(){
         $this->contribuyenteCreate->nombre = '';
@@ -41,13 +52,17 @@ class ContribForm extends Component
                 $this->contribuyenteCreate->direccion = $contribuyente->direccion;
                 $this->contribuyenteCreate->telefono = $contribuyente->telefono;
                 $this->disabled = true;
+                $this->contribuyenteExists = true;
+                $this->dispatch('contrib-exists', $this->contribuyenteCreate->cedula); 
             }else{
                 $this->clearForm();
                 $this->disabled = false;
+                $this->contribuyenteExists = false;
             }
         }else{
             $this->clearForm();
             $this->disabled = false;
+            $this->contribuyenteExists = false;
         }
         
     }

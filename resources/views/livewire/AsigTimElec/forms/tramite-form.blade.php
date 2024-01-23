@@ -36,7 +36,7 @@
                 <div class="mb-4">
 
                     <x-input-label>
-                        Cedula:
+                        Concepto Tributos:
                     </x-input-label>
                     <div class="mb-4">
                         <span class="mr-2">
@@ -64,13 +64,13 @@
                 <div class="mb-4">
 
                     <x-input-label>
-                        Cedula:
+                        Ente Trámite:
                     </x-input-label>
                     <div class="mb-4">
                         <span class="mr-2">
                             <x-select class="w-full" 
-                                wire:model="selectedEnteTramite">
-                                <option value="" disabled>
+                                wire:model.live="selectedEnteTramite"> 
+                                <option value="0" disabled selected>
                                     ...
                                 </option>
                                 @forelse ($ente_tramites as $ente_tramite)
@@ -89,10 +89,10 @@
 
         <div class="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
             <div class="mb-4">
-                <label for="city"
-                    class="inline-block mb-2 ml-1 font-bold text-xs text-slate-700 dark:text-white/80">City</label>
-                <input type="text" name="city" value="New York"
-                    class="focus:shadow-primary-outline dark:bg-slate-850 dark:text-white text-sm leading-5.6 ease block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none" />
+                <div class="mx-auto  max-w-xs  mt-2">
+                    <dt class="text-base text-center text-gray-300">Total unidades tributarias</dt>
+                    <dd class="order-first text-3xl font-semibold tracking-tight text-center text-white sm:text-2xl">{{ $totalUt }}</dd>
+                </div>
             </div>
         </div>
         <div class="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">

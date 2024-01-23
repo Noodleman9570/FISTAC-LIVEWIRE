@@ -1,7 +1,8 @@
 <div>
-    <div class="pt-12">
+    <div class="pt-12 xl:pl-[10rem]">
         <div
-            class="max-w-[70vw] bg-white dark:bg-[#111827] p-4 rounded-lg mx-auto sm:px-6 lg:px-8 text-black dark:text-white">
+            class="md:w-[70vw]  bg-white dark:bg-[#111827] p-4 rounded-lg mx-auto sm:px-6 lg:px-8 text-black dark:text-white">
+
             <x-primary-button wire:click='create' class="mb-4">
                 Agregar Contribuyente
             </x-primary-button>
@@ -26,7 +27,7 @@
                             </x-input-label>
                             <div class="flex mb-4">
                                 <span class="mr-2">
-                                    <x-select class="w-20" wire:model="contribuyenteCreate.prefijo">
+                                    <x-select class="w-20" wire:model.live="contribuyenteCreate.prefijo">
                                         <option value="" disabled>
                                             ...
                                         </option>
@@ -38,7 +39,7 @@
                                 </span>
                                 
                                 <div class="column w-full">
-                                    <x-text-input class="w-full" wire:model="contribuyenteCreate.cedula"></x-text-input>
+                                    <x-text-input class="w-full" wire:model.live="contribuyenteCreate.cedula"></x-text-input>
                                 </div>
                                 
                             </div>
@@ -51,7 +52,7 @@
                                         Nombre:
                                     </x-input-label>
 
-                                    <x-text-input class="w-full" wire:model="contribuyenteCreate.nombre"></x-text-input>
+                                    <x-text-input class="w-full" wire:model.live="contribuyenteCreate.nombre"></x-text-input>
                                     
                                 </span>
                                 
@@ -62,7 +63,7 @@
                                     
                                     <div class="flex -mt-4">
                                         <x-text-input class="w-full"
-                                        wire:model="contribuyenteCreate.nombre2nd"></x-text-input>
+                                        wire:model.live="contribuyenteCreate.nombre2nd"></x-text-input>
                                         <label data-tooltip-target="tooltip-nombre" for="nombre-checkbox"
                                         class="relative cursor-pointer">
                                         <input id="default-checkbox" name="nombre-checkbox" type="checkbox"
@@ -88,7 +89,7 @@
                                             Apellido:
                                         </x-input-label>
                                         <x-text-input class="w-full"
-                                            wire:model="contribuyenteCreate.apellido"></x-text-input>
+                                            wire:model.live="contribuyenteCreate.apellido"></x-text-input>
                                         
 
                                     </span>
@@ -100,7 +101,7 @@
 
                                         <div class="flex -mt-4">
                                             <x-text-input class="w-full"
-                                                wire:model="contribuyenteCreate.apellido2nd"></x-text-input>
+                                                wire:model.live="contribuyenteCreate.apellido2nd"></x-text-input>
                                             <label data-tooltip-target="tooltip-apellido" for="apellido-checkbox"
                                                 class="relative cursor-pointer">
                                                 <input id="default-checkbox" name="apellido-checkbox" type="checkbox"
@@ -125,7 +126,7 @@
                                     Direccion:
                                 </x-input-label>
 
-                                <x-textarea class="w-full" wire:model="contribuyenteCreate.direccion"></x-textarea>
+                                <x-textarea class="w-full" wire:model.live="contribuyenteCreate.direccion"></x-textarea>
                                 <x-input-error-jet for="contribuyenteCreate.direccion" />
                             </div>
 
@@ -134,7 +135,7 @@
                                     Telefono:
                                 </x-input-label>
 
-                                <x-text-input class="w-full" wire:model="contribuyenteCreate.telefono"></x-text-input>
+                                <x-text-input class="w-full" wire:model.live="contribuyenteCreate.telefono"></x-text-input>
                                 <x-input-error-jet for="contribuyenteCreate.telefono" />
                             </div>
 
