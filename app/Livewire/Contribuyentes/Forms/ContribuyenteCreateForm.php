@@ -20,6 +20,7 @@ class ContribuyenteCreateForm extends Form
     public $apellido2nd;
     public $direccion = '';
     public $telefono;
+    public $fecha_nac;
 
     public function rules()
     {
@@ -40,6 +41,19 @@ class ContribuyenteCreateForm extends Form
             'direccion' => 'required|min:10|max:100',
 
             'telefono' => ['required', 'regex:/^(0412|0414|0424|0416|0426|0234|0241|0251|0235|0271|0261|0271|0281|0291)\\d{7}$/'],
+
+            'fecha_nac' => ['required', function ($attribute, $value, $fail){
+                                //Obtener fecha actual
+                                $fechaActual = date('Y-m-d'); 
+                                
+                                // Restar 15 años
+                                $limiteInferior = date('Y-m-d', strtotime('-15 years', strtotime($fechaActual)));
+                            
+                                // Comparar fechas 
+                                if ($value > $limiteInferior) {
+                                    $fail("La fecha debe ser menor a $limiteInferior");
+                                }
+                            }],
 
         ];
     }
@@ -68,8 +82,9 @@ class ContribuyenteCreateForm extends Form
         $this->apellido .= ' ' . $this->apellido2nd;
 
         $contribuyente = Contribuyente::create(
-            $this->only('prefijo', 'cedula', 'nombre', 'apellido', 'direccion', 'telefono')
+            $this->only('prefijo', 'cedula', 'fecha_nac', 'nombre', 'apellido', 'direccion', 'telefono')
         );
+        
 
 
         $this->reset();

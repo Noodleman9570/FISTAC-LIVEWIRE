@@ -11,7 +11,7 @@ class Contribuyente extends Model
     use HasFactory;
 
     protected $fillable = [
-        'prefijo','cedula','nombre','apellido','direccion','telefono'
+        'prefijo','cedula', 'fecha_nac', 'nombre','apellido','direccion','telefono'
     ];
 
     /**

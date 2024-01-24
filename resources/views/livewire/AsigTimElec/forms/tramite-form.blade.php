@@ -83,10 +83,14 @@
 
                     </div>
                 </div>
-
+                
             </div>
         </div>
-
+        <div class="w-full max-w-full px-3 shrink-0 md:flex-0">
+            <x-input-error-jet for="ente_tramite_id" class="w-full" />
+        </div>
+        
+        
         <div class="w-full max-w-full px-3 shrink-0 md:w-4/12 md:flex-0">
             <div class="mb-4">
                 <div class="mx-auto  max-w-xs  mt-2">

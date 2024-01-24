@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('apellido');
             $table->text('direccion');
             $table->string('telefono');
+            $table->date('fecha_nac');
             $table->timestamps();
         });
     }

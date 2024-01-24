@@ -21,8 +21,9 @@ class ContribForm extends Component
     #[On('contrib-save')]
     public function save()
     {
-       $this->contribuyenteCreate->save();
-        dd('guardado');
+        $cedula = $this->contribuyenteCreate->cedula;
+        $this->contribuyenteCreate->save();
+        $this->dispatch('contrib-create', $cedula);
     }
 
     public function clearForm(){
@@ -32,6 +33,8 @@ class ContribForm extends Component
         $this->contribuyenteCreate->apellido2nd = '';
         $this->contribuyenteCreate->direccion = '';
         $this->contribuyenteCreate->telefono = '';
+        $this->contribuyenteCreate->fecha_nac = '';
+        $this->dispatch('clear-exists');
     }
 
     #[On('selectChanged')]
@@ -51,6 +54,7 @@ class ContribForm extends Component
                 $this->contribuyenteCreate->apellido2nd = $apellidoNames[1];
                 $this->contribuyenteCreate->direccion = $contribuyente->direccion;
                 $this->contribuyenteCreate->telefono = $contribuyente->telefono;
+                $this->contribuyenteCreate->fecha_nac = $contribuyente->fecha_nac;
                 $this->disabled = true;
                 $this->contribuyenteExists = true;
                 $this->dispatch('contrib-exists', $this->contribuyenteCreate->cedula); 

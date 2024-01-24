@@ -26,6 +26,23 @@ class TramiteForm extends Component
     public $contribuyente_id;
     public $descripcion = 'ejemplo';
 
+    public function rules()
+    {
+        return [
+
+            'ente_tramite_id' => 'min:1',
+
+
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'ente_tramite_id.min' => 'Debe seleccionar un ente de tramite'
+        ];
+    }
+
     public function mount(){
         $this->categorias = Categoria::all();
     }
@@ -57,24 +74,26 @@ class TramiteForm extends Component
     }
 
     #[On('tramite-save')]
-    public function save($cedula)
+    public function save($cedula, $exists)
     {
-        if($cedula)
+        if($exists)
         {
+            
+            $this->validate();
+
+            
             $contrib = Contribuyente::where('cedula', $cedula)->first();
             $this->contribuyente_id = $contrib->id;
             $tramite = Tramite::create(
                 $this->only('descripcion', 'contribuyente_id', 'ente_tramite_id')
             );
+
+            $this->redirect(route('AsigTimElec.index')); 
             
         }else{
             $this->dispatch('contrib-save');
         }
 
-        
-
-
-        
     }
 
     public function render()

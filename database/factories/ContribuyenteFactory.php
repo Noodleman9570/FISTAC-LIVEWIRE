@@ -60,6 +60,7 @@ class ContribuyenteFactory extends Factory
             'nombre' => fake()->name(),
             'apellido' => fake()->name(),
             'direccion' => fake()->text,
+            'fecha_nac' => fake()->date(),
             'telefono' => $this->generarTelefonoVenezolano()
         ];
     }
