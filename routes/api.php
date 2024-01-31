@@ -27,15 +27,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Laravel
-Route::post('/login', function (Request $request) {
+Route::post('/v1/login', function (Request $request) {
     $credentials = $request->only('email', 'password');
 
     if (Auth::attempt($credentials)) {
-        // Autenticación exitosa, generar y devolver token
-        $token = Str::random(60);
-        $request->user()->forceFill([
-            'api_token' => hash('sha256', $token),
-        ])->save();
+        // Autenticación exitosa, devolver el token existente
+        $token = $request->user()->api_token;
 
         return ['token' => $token];
     }
