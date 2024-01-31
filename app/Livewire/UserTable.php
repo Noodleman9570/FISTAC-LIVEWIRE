@@ -16,7 +16,7 @@ use PowerComponents\LivewirePowerGrid\PowerGridColumns;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 
-final class UsersTable extends PowerGridComponent
+final class UserTable extends PowerGridComponent
 {
     use WithExport;
 

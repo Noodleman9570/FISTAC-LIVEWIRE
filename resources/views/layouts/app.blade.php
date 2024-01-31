@@ -85,7 +85,6 @@
 <script src="{{ asset('/js/darkmode.js') }}"></script>
 
 
-
 @livewire('wire-elements-modal')
 @livewireChartsScripts
 

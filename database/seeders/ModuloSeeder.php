@@ -43,8 +43,8 @@ class ModuloSeeder extends Seeder
         $aggContrib->save();
 
         $aggUser = new Modulo;
-        $aggUser->modulo = "Usuarios";
-        $aggUser->ruta = "Users.index";
+        $aggUser->modulo = "Usuario";
+        $aggUser->ruta = "User.index";
         $aggUser->icon ="bi bi-person-plus-fill";
         $aggUser->descripcion = "Módulo para Agregar nuevos Usuarios";
         $aggUser->save();

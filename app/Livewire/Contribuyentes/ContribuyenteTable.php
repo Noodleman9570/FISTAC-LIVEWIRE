@@ -25,6 +25,11 @@ final class ContribuyenteTable extends PowerGridComponent
 
     protected $listeners = ['registroCreado' => '$refresh'];
 
+    // public function mount(): void
+    // {
+    //     $this->listen('registroCreado', '$refresh');
+    // }
+
     public function setUp(): array
     {
         $this->showCheckBox();
