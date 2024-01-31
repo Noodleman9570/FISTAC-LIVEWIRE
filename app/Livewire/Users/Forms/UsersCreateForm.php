@@ -16,10 +16,15 @@ class UsersCreateForm extends Form
     //Atributtes
     #[Validate]
     public $name;
+    #[Validate]
     public $email;
+    #[Validate]
     public $password;
+    #[Validate]
     public $password_confirmation = '';
+    #[Validate]
     public $roles = [];
+    #[Validate]
     public $role_id = '';
 
     public function rules()
@@ -45,7 +50,8 @@ class UsersCreateForm extends Form
                     }
                 }
             ],
-            'password' => ['required', 'confirmed', 'string', 'min:8', 'max:40', Rules\Password::defaults()],
+            'password' => ['required', 'string', 'min:8', 'max:40', Rules\Password::defaults()],
+            'password_confirmation' => 'same:password'
 
         ];
     }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('denom_timbres', function (Blueprint $table) {
             $table->id();
-            $table->integer('cant_ut');
+            $table->integer('cant_ut')->nullable();
             $table->text('img');
             $table->enum('tipo', ['fisico', 'electronico']);
             $table->timestamps();

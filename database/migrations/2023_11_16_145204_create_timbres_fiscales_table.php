@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('timbres_fiscales', function (Blueprint $table) {
-            $table->id();
+            $table->string('codigo', 8)->primary();
             $table->enum('status', ['generado', 'asignado', 'anulado', 'empleado']);
             $table->foreignId('denominacion_id')
                 ->nullable()

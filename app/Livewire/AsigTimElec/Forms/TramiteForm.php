@@ -6,6 +6,7 @@ use App\Models\Categoria;
 use App\Models\ConceptoTributo;
 use App\Models\Contribuyente;
 use App\Models\EnteTramite;
+use App\Models\TimbreFiscal;
 use App\Models\Tramite;
 use Livewire\Attributes\On;
 use Livewire\Component;
@@ -73,6 +74,19 @@ class TramiteForm extends Component
         
     }
 
+    function generarCodigo($longitud) {
+        $caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $longitud_caracteres = strlen($caracteres);
+        $codigo = '';
+      
+        for ($i = 0; $i < $longitud; $i++) {
+          $index = rand(0, $longitud_caracteres - 1);
+          $codigo .= $caracteres[$index];
+        }
+      
+        return $codigo;
+    }   
+
     #[On('tramite-save')]
     public function save($cedula, $exists)
     {
@@ -86,6 +100,11 @@ class TramiteForm extends Component
             $this->contribuyente_id = $contrib->id;
             $tramite = Tramite::create(
                 $this->only('descripcion', 'contribuyente_id', 'ente_tramite_id')
+            );
+
+            TimbreFiscal::create(
+                id
+                'id_ut' =>
             );
 
             $this->redirect(route('AsigTimElec.index')); 
