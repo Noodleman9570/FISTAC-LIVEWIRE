@@ -16,9 +16,13 @@ use PowerComponents\LivewirePowerGrid\PowerGridColumns;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\WithExport;
 
-final class UserTable extends PowerGridComponent
+final class UsersTable extends PowerGridComponent
 {
     use WithExport;
+
+    public $refresh = false;
+
+    protected $listeners = ['registroCreado' => '$refresh'];
 
     public function setUp(): array
     {
@@ -37,7 +41,8 @@ final class UserTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return User::query();
+        return User::query()->orderBy('id', 'desc');
+        return User::with('Role');
     }
 
     public function relationSearch(): array
@@ -55,8 +60,8 @@ final class UserTable extends PowerGridComponent
             ->addColumn('name_lower', fn (User $model) => strtolower(e($model->name)))
 
             ->addColumn('email')
-            ->addColumn('created_at_formatted', fn (User $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'));
-    }
+            ->addColumn('Role.rol');
+            }
 
     public function columns(): array
     {
@@ -70,8 +75,7 @@ final class UserTable extends PowerGridComponent
                 ->sortable()
                 ->searchable(),
 
-            Column::make('Created at', 'created_at_formatted', 'created_at')
-                ->sortable(),
+            Column::make('Rol', 'Role.rol'),
 
             Column::action('Action')
         ];
@@ -86,20 +90,21 @@ final class UserTable extends PowerGridComponent
         ];
     }
 
-    #[\Livewire\Attributes\On('edit')]
-    public function edit($rowId): void
-    {
-        $this->js('alert('.$rowId.')');
-    }
 
     public function actions(\App\Models\User $row): array
     {
         return [
             Button::add('edit')
-                ->slot('Edit: '.$row->id)
-                ->id()
-                ->class('pg-btn-white dark:ring-pg-primary-600 dark:border-pg-primary-600 dark:hover:bg-pg-primary-700 dark:ring-offset-pg-primary-800 dark:text-pg-primary-300 dark:bg-pg-primary-700')
-                ->dispatch('edit', ['rowId' => $row->id])
+            ->slot('<i class="bi bi-pencil-square"></i> Editar')
+            ->id()
+            ->class('pg-btn-white text-xl font-bold dark:pg-btn-yellow dark:ring-yellow-400 dark:border-yellow-400 dark:hover:bg-yellow-600 dark:ring-offset-yellow-700 dark:text-white dark:bg-yellow-400 pg-btn-yellow ring-yellow-400 border-yellow-400 hover:bg-yellow-600 ring-offset-yellow-700 text-white bg-yellow-400')
+            ->openModal('Users.EditUser', ['rowId' => $row->id]),
+
+            Button::add('delete')
+            ->slot('<i class="bi bi-trash"></i> Eliminar')
+            ->id()
+            ->class('pg-btn-white text-xl font-bold dark:pg-btn-red dark:ring-red-600 dark:border-red-600 dark:hover:bg-red-600 dark:ring-offset-red-700 dark:text-white dark:bg-red-600 pg-btn-red ring-red-600 border-red-600 hover:bg-red-600 ring-offset-red-700 text-white bg-red-600')
+            ->openModal('Users.DeleteUser', ['rowId' => $row->id])
         ];
     }
 
