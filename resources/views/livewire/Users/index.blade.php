@@ -65,7 +65,7 @@
                                     <x-input-label>
                                         Contraseña:
                                     </x-input-label>
-                                    <x-text-input class="w-full" wire:model.live="userCreate.password"></x-text-input>
+                                    <x-text-input type='password' class="w-full" wire:model.live="userCreate.password"></x-text-input>
                                 </span>
                             </div>
                             <x-input-error-jet for="userCreate.password" />
@@ -78,7 +78,7 @@
                                     <x-input-label>
                                         Confirmar contraseña:
                                     </x-input-label>
-                                    <x-text-input class="w-full" wire:model.live="userCreate.password_confirmation"></x-text-input>
+                                    <x-text-input class="w-full" type='password' wire:model.live="userCreate.password_confirmation"></x-text-input>
                                 </span>
                             </div>
                             <x-input-error-jet for="userCreate.password_confirmation" />
@@ -92,7 +92,7 @@
                                 Cancelar
                             </x-danger-button>
                             <x-primary-button>
-                                Actualizar
+                                Crear
                             </x-primary-button>
                         </div>
                     </x-slot>

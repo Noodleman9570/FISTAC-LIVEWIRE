@@ -19,6 +19,8 @@ use App\Http\Controllers\ControlTimbreController;
 use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\ContribuyenteController;
 use App\Http\Controllers\LeyController;
+use App\Http\Controllers\ReportTimElec;
+
 
 
 use App\Models\Contribuyente;
@@ -55,10 +57,12 @@ Route::resource('Bitacora', BitacoraController::class)
 Route::resource('Ley', LeyController::class)
     ->middleware(['auth', 'verified']);
 
+Route::get('ReportTimElec', [ReportTimElec::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('ReportTimElec');
+
 
 // Route::resource('denomTimbres', DenomTimbresController::class);
-
-Route::get('pdf', [PdfController::class, 'index']);
 
 
 Route::view('dashboard', 'dashboard')

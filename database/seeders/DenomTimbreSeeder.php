@@ -16,6 +16,15 @@ class DenomTimbreSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $admin = new DenomTimbre();
+
+        $admin->cant_ut = null;
+        $admin->img = 'timbre_electronico.jpeg';
+        $admin->tipo = 'electronico';
+
+        $admin->save();
+
         DenomTimbre::factory(20)->create();
     }
 }
