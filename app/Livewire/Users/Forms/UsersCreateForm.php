@@ -3,6 +3,9 @@
 namespace App\Livewire\Users\Forms;
 
 use App\Models\Role;
+use Illuminate\Support\Str;
+
+
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Validate;
@@ -66,11 +69,17 @@ class UsersCreateForm extends Form
     {
         $this->validate();
 
+        $apiToken = null;
+        if ($this->role_id == 3) {
+            $apiToken = Str::random(60); 
+        }
+
         User::create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'role_id' => $this->role_id,
+            'api_token' => $apiToken,
         ]);
 
         $this->reset();
