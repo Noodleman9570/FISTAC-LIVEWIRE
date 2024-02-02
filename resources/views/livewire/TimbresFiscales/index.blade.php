@@ -58,7 +58,7 @@
                 </div>
                 <hr class="h-px my-4 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent" />
                 <div class="w-full group dark:hover:bg-[#374a6250] hover:bg-gray-200 rounded-md transition ease-in duration-100">
-                  <a href="">
+                  <a href="{{ route('GenTimFis.index') }}">
                     <div class="p-4 mx-6 mb-0 text-center border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
                       <div class="child w-16 h-16 group-hover:w-full text-center group-transition ease-in duration-100 bg-center shadow-sm icon bg-gradient-to-tl from-blue-500 to-violet-500 rounded-xl">
                         <i class="relative text-xl leading-none text-white opacity-100 fas fa-landmark top-31/100"></i>

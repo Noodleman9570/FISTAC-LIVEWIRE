@@ -6,7 +6,6 @@
         </h2>
     </x-slot>
 
-
-    <livewire:Contribuyentes.index>
+    <livewire:GenTimFis.index>
 
 </x-app-layout>

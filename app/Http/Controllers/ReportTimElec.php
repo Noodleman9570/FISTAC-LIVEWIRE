@@ -12,7 +12,7 @@ class ReportTimElec extends Controller
 
     public function index(request $request){
 
-        $idtimbre = $request['id'];
+        $idtimbre = $request->id;
 
         $timbre = DB::table('tramites')
             ->join('timbres_fiscales', 'tramites.id', '=', 'timbres_fiscales.tramite_id')

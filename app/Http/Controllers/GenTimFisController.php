@@ -12,7 +12,7 @@ class GenTimFisController extends Controller
      */
     public function index()
     {
-        //
+        return view('GenTimFis.index');
     }
 
     /**

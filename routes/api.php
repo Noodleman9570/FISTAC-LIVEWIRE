@@ -9,7 +9,7 @@ use App\Http\Controllers\EnteTramiteApiController;
 use App\Http\Controllers\TramiteApiController;
 use App\Http\Controllers\UserApiController;
 use App\Http\Controllers\ContribuyenteApiController;
-
+use App\Http\Controllers\GetTimbreFiscalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,4 +49,5 @@ Route::group(['prefix'=> 'v1'],function(){
     Route::apiResource('tramite', TramiteApiController::class);
     Route::apiResource('user', UserApiController::class);
     Route::apiResource('contribuyente', ContribuyenteApiController::class);
+    Route::apiResource('getTimbreFiscal', GetTimbreFiscalController::class);
 });
