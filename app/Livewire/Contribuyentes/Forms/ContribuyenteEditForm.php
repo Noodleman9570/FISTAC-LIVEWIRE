@@ -8,6 +8,7 @@ use Livewire\Attributes\Modelable;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Validate;
+use App\Helpers\Helpers;
 use Livewire\Form;
 
 class ContribuyenteEditForm extends Form
@@ -79,8 +80,8 @@ class ContribuyenteEditForm extends Form
 
         $contribuyente = Contribuyente::find($this->contribuyenteId);
 
-        $arrayNames =  $this->splitNames($contribuyente->nombre);
-        $apellidoNames = $this->splitNames($contribuyente->apellido);
+        $arrayNames =  Helpers::splitNames($contribuyente->nombre);
+        $apellidoNames = Helpers::splitNames($contribuyente->apellido);
         
         $this->prefijo = $contribuyente->prefijo;
         $this->oldCedula = $contribuyente->cedula;
@@ -100,10 +101,10 @@ class ContribuyenteEditForm extends Form
 
         $this->validate();
 
-        $this->nombre = $this->nameSanitize($this->nombre);
-        $this->nombre2nd = $this->nameSanitize($this->nombre2nd);
-        $this->apellido = $this->nameSanitize($this->apellido);
-        $this->apellido2nd = $this->nameSanitize($this->apellido2nd);
+        $this->nombre = Helpers::nameSanitize($this->nombre);
+        $this->nombre2nd = Helpers::nameSanitize($this->nombre2nd);
+        $this->apellido = Helpers::nameSanitize($this->apellido);
+        $this->apellido2nd = Helpers::nameSanitize($this->apellido2nd);
 
         $this->nombre .= ' ' . $this->nombre2nd;
 

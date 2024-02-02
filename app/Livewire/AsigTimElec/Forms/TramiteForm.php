@@ -10,6 +10,7 @@ use App\Models\TimbreFiscal;
 use App\Models\Tramite;
 use Livewire\Attributes\On;
 use Livewire\Component;
+use App\Helpers\Helpers;
 
 class TramiteForm extends Component
 {
@@ -74,19 +75,7 @@ class TramiteForm extends Component
         
     }
 
-    function generarCodigo($longitud) {
-        $caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        $longitud_caracteres = strlen($caracteres);
-        $codigo = '';
-      
-        for ($i = 0; $i < $longitud; $i++) {
-          $index = rand(0, $longitud_caracteres - 1);
-          $codigo .= $caracteres[$index];
-        }
-      
-        return $codigo;
-    }   
-
+    
     #[On('tramite-save')]
     public function save($cedula, $exists)
     {
@@ -102,10 +91,18 @@ class TramiteForm extends Component
                 $this->only('descripcion', 'contribuyente_id', 'ente_tramite_id')
             );
 
-            TimbreFiscal::create(
-                id
-                'id_ut' =>
-            );
+            $date = date('h:m:s');
+            $date = str_replace(':', '', $date);
+
+            $timbreFiscal = TimbreFiscal::create([
+                'codigo' => 'EL-'.Helpers::generarCodigo(6).$date,
+                'cant_ut' => $this->totalUt,
+                'tramite_id' => $tramite->id,
+                'status' => 'asignado',
+                'denominacion_id' => 1,
+            ]);
+
+            dd($timbreFiscal);
 
             $this->redirect(route('AsigTimElec.index')); 
             

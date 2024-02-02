@@ -11,6 +11,12 @@ class TimbreFiscal extends Model
 
     protected $table = "timbres_fiscales";
 
+    protected $primaryKey = 'codigo';
+
+    protected $fillable = [
+        'codigo', 'cant_ut', 'tramite_id', 'status', 'denominacion_id'
+    ];
+
     /**
      * Get the tramite that owns the TimbreFiscal
      *

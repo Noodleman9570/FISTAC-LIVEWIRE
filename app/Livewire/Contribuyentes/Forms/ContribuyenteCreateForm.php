@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Contribuyentes\Forms;
 
+use App\Helpers\Helpers;
 use App\Models\Contribuyente;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
@@ -72,10 +73,10 @@ class ContribuyenteCreateForm extends Form
 
         $this->validate();
 
-        $this->nombre = self::nameSanitize($this->nombre);
-        $this->nombre2nd = self::nameSanitize($this->nombre2nd);
-        $this->apellido = self::nameSanitize($this->apellido);
-        $this->apellido2nd = self::nameSanitize($this->apellido2nd);
+        $this->nombre = Helpers::nameSanitize($this->nombre);
+        $this->nombre2nd = Helpers::nameSanitize($this->nombre2nd);
+        $this->apellido = Helpers::nameSanitize($this->apellido);
+        $this->apellido2nd = Helpers::nameSanitize($this->apellido2nd);
 
         $this->nombre .= ' ' . $this->nombre2nd;
 

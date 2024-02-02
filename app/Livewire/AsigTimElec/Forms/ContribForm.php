@@ -3,10 +3,12 @@
 namespace App\Livewire\AsigTimElec\Forms;
 
 use Livewire\Component;
+use App\Helpers\Helpers;
 use App\Livewire\Contribuyentes\Forms\ContribuyenteCreateForm;
 use Livewire\Attributes\On;
 use App\Models\Contribuyente;
 use Livewire\Attributes\Validate;
+
 
 class ContribForm extends Component
 {
@@ -44,8 +46,8 @@ class ContribForm extends Component
         if (is_numeric($this->contribuyenteCreate->cedula) && $this->contribuyenteCreate->prefijo && ($this->contribuyenteCreate->cedula < 99999999)) {
             $contribuyente = Contribuyente::where('cedula', $this->contribuyenteCreate->cedula)->where('prefijo', $this->contribuyenteCreate->prefijo)->first();
             if ($contribuyente) {
-                $arrayNames =  $this->contribuyenteCreate->splitNames($contribuyente->nombre);
-                $apellidoNames = $this->contribuyenteCreate->splitNames($contribuyente->apellido);
+                $arrayNames =  Helpers::splitNames($contribuyente->nombre);
+                $apellidoNames = Helpers::splitNames($contribuyente->apellido);
 
                 $this->contribuyenteCreate->prefijo = $contribuyente->prefijo;
                 $this->contribuyenteCreate->nombre = $arrayNames[0];

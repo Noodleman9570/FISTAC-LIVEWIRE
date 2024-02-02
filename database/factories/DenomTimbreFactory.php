@@ -17,10 +17,7 @@ class DenomTimbreFactory extends Factory
      */
     public function definition(): array
     {
-        $date = date('d-m-Y');
-
         return [
-            'codigo' => 'EL'.Str::random(8).' '.$date,
             'cant_ut' => fake()->numberBetween(1, 100),
             'img' => fake()->text, 
             'tipo' => 'fisico',
