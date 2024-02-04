@@ -6,6 +6,6 @@
         </h2>
     </x-slot>
 
-    <livewire:GenTimFis.index>
+    <livewire:GemTimFis.index>
 
 </x-app-layout>

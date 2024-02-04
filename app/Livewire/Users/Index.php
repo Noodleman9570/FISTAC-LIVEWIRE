@@ -6,11 +6,13 @@ use Livewire\Component;
 use App\Models\User;
 use App\Livewire\Users\Forms\UsersCreateForm;
 
+
 class Index extends Component
 {
 
     public UsersCreateForm $userCreate;
 
+    public $qr;
     public $users;
     public $req = true;
     public $req2 = true;
@@ -18,6 +20,13 @@ class Index extends Component
     public function create()
     {
         $this->userCreate->create();
+    }
+
+    public function mount()
+    {
+        
+        
+        
     }
 
 

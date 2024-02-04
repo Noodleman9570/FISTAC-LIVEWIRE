@@ -14,7 +14,7 @@ class TimbreFiscal extends Model
     protected $primaryKey = 'codigo';
 
     protected $fillable = [
-        'codigo', 'cant_ut', 'tramite_id', 'status', 'denominacion_id'
+        'codigo', 'cant_ut', 'tramite_id', 'status', 'denominacion_id', 'code_qr'
     ];
 
     /**

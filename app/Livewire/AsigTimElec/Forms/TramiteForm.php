@@ -11,6 +11,14 @@ use App\Models\Tramite;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use App\Helpers\Helpers;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\Encoding\Encoding;
+use Endroid\QrCode\Label\Label;
+use Endroid\QrCode\Logo\Logo;
+use Endroid\QrCode\RoundBlockSizeMode;
+use Endroid\QrCode\Writer\PngWriter;
+use Endroid\QrCode\Writer\ValidationException;
 
 class TramiteForm extends Component
 {
@@ -93,16 +101,28 @@ class TramiteForm extends Component
 
             $date = date('h:m:s');
             $date = str_replace(':', '', $date);
+            $codigo = 'EL-'.Helpers::generarCodigo(6).$date;
+
+            $writer = new PngWriter();
+
+            $qr = QrCode::create('http://192.168.0.151:8000/api/v1/getTimbre?codigo='.$codigo);
+
+            $qr = $writer->write($qr);
+
+            $qrRoute = '../public/storage/qr/'.$codigo.'.jpg';
+
+            $qr->saveToFile($qrRoute);
 
             $timbreFiscal = TimbreFiscal::create([
-                'codigo' => 'EL-'.Helpers::generarCodigo(6).$date,
+                'codigo' => $codigo,
                 'cant_ut' => $this->totalUt,
                 'tramite_id' => $tramite->id,
                 'status' => 'asignado',
                 'denominacion_id' => 1,
+                'code_qr' => $qrRoute,
             ]);
 
-            dd($timbreFiscal);
+            
 
             $this->redirect(route('AsigTimElec.index')); 
             
