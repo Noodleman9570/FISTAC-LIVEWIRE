@@ -15,7 +15,7 @@ class TimbreFiscalSeeder extends Seeder
      */
     public function run(): void
     {
-        TimbreFiscal::factory(20)->create();
+        // TimbreFiscal::factory(20)->create();
 
     }
 }

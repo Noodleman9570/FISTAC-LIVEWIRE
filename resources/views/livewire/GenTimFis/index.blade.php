@@ -85,133 +85,213 @@
 
             </ol>
 
-            @if (!$step1)
-            <p class="text-xl my-10 mx-5"> Selecciona un timbres a imprimir según su unidad tributaria </p>
 
-            <div class="flex flex-wrap">
 
-                <div wire:click='selectedTimbre(1)'
-                    class=" {{ $timbre_1 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
-                    <div
-                        class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
-                        <div class="relative overflow-hidden rounded-2xl">
-                            <img src="{{ asset('storage/Timbres_Fisicos/1_utet.jpg') }}" alt="imagen"
-                                class="w-full h-full object-cover z-0 ">
+
+            <div x-data="{ showTim: true, showCant: false, showPrint: false, showProcessing: false }">
+                <div class="flex relative">
+
+                    <div x-transition.duration.500ms
+                        x-bind:class="showTim ? 'translate-x-0' : '-translate-x-[2000px] z-100 absolute'"
+                        class="transition bg-[#111827] duration-700 transform flex flex-wrap">
+                        <p class="text-xl my-10 mx-5 w-full"> Selecciona un timbres a imprimir según su unidad
+                            tributaria
+                        </p>
+
+                        <div wire:click='selectedTimbre(1)'
+                            class=" {{ $timbre_1 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
                             <div
-                                class="{{ $timbre_1 ? '' : 'invisible' }} absolute top-20 left-32 text-blue-600 text-9xl">
-                                <i class="bi bi-check-circle"></i>
+                                class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
+                                <div class="relative overflow-hidden rounded-2xl">
+                                    <img src="{{ asset('storage/Timbres_Fisicos/1_utet.jpg') }}" alt="imagen"
+                                        class="w-full h-full object-cover z-0 ">
+
+                                    <span
+                                        class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_1 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
+                                        <div class="{{ $timbre_1 ? '' : 'invisible' }} text-blue-600 text-9xl">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+                                    </span>
+
+                                </div>
                             </div>
-                            <span
-                                class="absolute top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_1 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200"></span>
+                        </div>
+
+
+                        <div wire:click='selectedTimbre(5)'
+                            class=" {{ $timbre_5 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
+                            <div
+                                class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
+                                <div class="relative overflow-hidden rounded-2xl">
+                                    <img src="{{ asset('storage/Timbres_Fisicos/5_utet.jpg') }}" alt="imagen"
+                                        class="w-full h-full object-cover z-0 ">
+                                    <span
+                                        class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_5 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
+                                        <div class="{{ $timbre_5 ? '' : 'invisible' }} text-blue-600 text-9xl">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div wire:click='selectedTimbre(10)'
+                            class=" {{ $timbre_10 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
+                            <div
+                                class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
+                                <div class="relative overflow-hidden rounded-2xl">
+                                    <img src="{{ asset('storage/Timbres_Fisicos/10_utet.jpg') }}" alt="imagen"
+                                        class="w-full h-full object-cover z-0 ">
+                                    <span
+                                        class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_10 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
+                                        <div class="{{ $timbre_10 ? '' : 'invisible' }} text-blue-600 text-9xl">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div wire:click='selectedTimbre(20)'
+                            class=" {{ $timbre_20 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
+                            <div
+                                class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
+                                <div class="relative overflow-hidden rounded-2xl">
+                                    <img src="{{ asset('storage/Timbres_Fisicos/1_utet.jpg') }}" alt="imagen"
+                                        class="w-full h-full object-cover z-0 ">
+                                    <span
+                                        class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_20 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
+                                        <div class="{{ $timbre_20 ? '' : 'invisible' }} text-blue-600 text-9xl">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div wire:click='selectedTimbre(50)'
+                            class=" {{ $timbre_50 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
+                            <div
+                                class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
+                                <div class="relative overflow-hidden rounded-2xl">
+                                    <img src="{{ asset('storage/Timbres_Fisicos/1_utet.jpg') }}" alt="imagen"
+                                        class="w-full h-full object-cover z-0 ">
+                                    <span
+                                        class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_50 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
+                                        <div class="{{ $timbre_50 ? '' : 'invisible' }} text-blue-600 text-9xl">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div x-transition.duration.500ms
+                        x-bind:class="showCant ? 'translate-x-0' : '-translate-x-full opacity-0 absolute'"
+                        class=" transition duration-700 transform mb-5 w-full">
+                        <p class="text-xl my-10 mx-5"> Elige la cantidad de hojas a
+                            imprimir
+                        </p>
+
+                        {{-- <div class="flex w-full justify-center mb-5">
+                                <img src="{{ asset('storage/Timbres_Fisicos/timbreReportExample.png') }}" width="300px" alt="">
+
+                            </div> --}}
+
+                        <div class="flex w-full justify-center mb-5">
+                            <img src="{{ asset("storage/Timbres_Fisicos/${selectTimbre}_utet.jpg") }}" width="300px"
+                                alt="">
 
                         </div>
-                    </div>
-                </div>
 
-                <div wire:click='selectedTimbre(5)'
-                    class=" {{ $timbre_5 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
-                    <div
-                        class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
-                        <div class="relative overflow-hidden rounded-2xl">
-                            <img src="{{ asset('storage/Timbres_Fisicos/5_utet.jpg') }}" alt="imagen"
-                                class="w-full h-full object-cover z-0 ">
-                            <div
-                                class="{{ $timbre_5 ? '' : 'invisible' }} absolute top-20 left-32 text-blue-600 text-9xl">
-                                <i class="bi bi-check-circle"></i>
-                            </div>
-                            <span
-                                class=" {{ $timbre_5 ? 'border-solid border-blue-600 border-8' : '' }} absolute top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8  hover:opacity-80  hover:ease-in duration-200"></span>
+                        <input type="number" wire:model.live='cantidad'
+                            class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light mb-5"
+                            required>
+
+                    </div>
+
+                    <div x-transition.duration.500ms
+                        x-bind:class="showPrint ? 'translate-x-0' : '-translate-x-full opacity-0 absolute'"
+                        class=" transition duration-700 transform mb-5 w-full">
+                        <p class="text-xl my-10 mx-5"> Elige la cantidad de hojas a
+                            imprimir
+                        </p>
+
+                        {{-- <div class="flex w-full justify-center mb-5">
+                                <img src="{{ asset('storage/Timbres_Fisicos/timbreReportExample.png') }}" width="300px" alt="">
+
+                            </div> --}}
+
+                        <div class="flex w-full justify-center mb-5">
+                            <img src="{{ asset("storage/Timbres_Fisicos/timbreReportExample.png") }}" width="300px"
+                                alt="">
 
                         </div>
+
+                       
+
                     </div>
-                </div>
 
-                <div wire:click='selectedTimbre(10)'
-                    class=" {{ $timbre_10 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
-                    <div
-                        class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
-                        <div class="relative overflow-hidden rounded-2xl">
-                            <img src="{{ asset('storage/Timbres_Fisicos/10_utet.jpg') }}" alt="imagen"
-                                class="w-full h-full object-cover z-0 ">
-                            <div
-                                class="{{ $timbre_10 ? '' : 'invisible' }} absolute top-20 left-32 text-blue-600 text-9xl">
-                                <i class="bi bi-check-circle"></i>
+                    <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-md max-h-full">
+                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="popup-modal">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                                <div class="p-4 md:p-5 text-center">
+                                    <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                    </svg>
+                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Estas seguro de llevar acabo la impresion de {{ $cantidad }} hojas de timbres</h3>
+                                    <button wire:click='checkStep3' data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center me-2">
+                                        si, estoy seguro
+                                    </button>
+                                    <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No, cancel</button>
+                                </div>
                             </div>
-                            <span
-                                class=" {{ $timbre_10 ? 'border-solid border-blue-600 border-8' : '' }} absolute top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8  hover:opacity-80  hover:ease-in duration-200"></span>
-
                         </div>
                     </div>
-                </div>
 
-                <div wire:click='selectedTimbre(20)'
-                    class=" {{ $timbre_20 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
-                    <div
-                        class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
-                        <div class="relative overflow-hidden rounded-2xl">
-                            <img src="{{ asset('storage/Timbres_Fisicos/1_utet.jpg') }}" alt="imagen"
-                                class="w-full h-full object-cover z-0 ">
-                            <div
-                                class="{{ $timbre_20 ? '' : 'invisible' }} absolute top-20 left-32 text-blue-600 text-9xl">
-                                <i class="bi bi-check-circle"></i>
-                            </div>
-                            <span
-                                class="{{ $timbre_20 ? 'border-solid border-blue-600 border-8' : '' }} absolute top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8  hover:opacity-80  hover:ease-in duration-200"></span>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div wire:click='selectedTimbre(50)'
-                    class=" {{ $timbre_50 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
-                    <div
-                        class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
-                        <div class="relative overflow-hidden rounded-2xl">
-                            <img src="{{ asset('storage/Timbres_Fisicos/1_utet.jpg') }}" alt="imagen"
-                                class="w-full h-full object-cover z-0 ">
-                            <div
-                                class="{{ $timbre_50 ? '' : 'invisible' }} absolute top-20 left-32 text-blue-600 text-9xl">
-                                <i class="bi bi-check-circle"></i>
-                            </div>
-                            <span
-                                class="{{ $timbre_50 ? 'border-solid border-blue-600 border-8' : '' }} absolute top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8  hover:opacity-80  hover:ease-in duration-200"></span>
-
-                        </div>
-                    </div>
                 </div>
 
 
+                <div class="my-10 flex justify-center">
+
+
+
+                    <button x-on:click="showTim= true; showCant=false; showPrint=false" wire:click='back' type="button"
+                        class="{{ $step1 || $step2 || $step3 ? '' : 'hidden' }} focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 ease-in duration-100 focus:ring-red-300 font-medium rounded-lg text-xl px-10 py-3 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                        <i class="bi bi-arrow-left"></i> Regresar
+                    </button>
+                    <button x-on:click="showTim = false; showCant = true;" wire:click='checkStep1'  type="button"
+                        class="{{ $step1 ? 'hidden' : '' }} focus:outline-none text-white bg-gray-700 {{ $selectTimbre == 0 ? 'hidden' : '' }}  ease-in duration-100 hover:bg-blue-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-xl px-10 py-3 me-2 mb-2 dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-gray-800">Siguiente
+                        <i class=" ml-3 bi bi-arrow-right"></i>
+                    </button>
+
+                    <button x-on:click="showTim = false; showCant = false; showPrint = true" wire:click='checkStep2' type="button"
+                        class="{{ $step2 || !$step1 ? 'hidden' : '' }} focus:outline-none text-white bg-gray-700 {{ $cantidad == 0 ? 'hidden' : '' }} hover:bg-blue-800 focus:ring-4 ease-in duration-100 focus:ring-gray-300 font-medium rounded-lg text-xl px-10 py-3 me-2 mb-2 dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-gray-800">Siguiente
+                        <i class=" ml-3 bi bi-arrow-right"></i>
+                    </button>
+
+                    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="button" 
+                        class="{{ !$step2 || !$step1 ? 'hidden' : '' }} focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 ease-in duration-100 focus:ring-blue-300 font-medium rounded-lg text-xl px-10 py-3 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Imprimir
+                        <i class="bi bi-printer-fill"></i>
+                    </button>
+                </div>
             </div>
-            @else
-            <div class="mb-5">
-                <p class="text-xl my-10 mx-5"> Elige la cantidad de hojas a imprimir </p>
-
-                <input type="number" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required>
-              </div>
-            @endif
-            
-
-            
-
-
-            <div class="my-10 flex justify-center">
-                <button wire:click='back' type="button"
-                    class="{{ $step1 || $step2 || $step3 ? '' : 'hidden' }} focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-xl px-10 py-3 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Regresar
-                    <i class="bi bi-arrow-left"></i></button>
-
-                <button wire:click='checkStep1' type="button"
-                    class="{{ $step1 ? 'hidden' : '' }} focus:outline-none text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-xl px-10 py-3 me-2 mb-2 dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-gray-800">Siguiente
-                    <i class=" ml-3 bi bi-arrow-right"></i></button>
-
-                <button wire:click='checkStep2' type="button"
-                    class="{{ ($step2 || !$step1)  ? 'hidden' : '' }} focus:outline-none text-white bg-gray-700 hover:bg-blue-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-xl px-10 py-3 me-2 mb-2 dark:bg-gray-600 dark:hover:bg-blue-700 dark:focus:ring-gray-800">Siguiente
-                    <i class=" ml-3 bi bi-arrow-right"></i></button>
-
-                <button wire:click='checkStep3' type="button"
-                    class="{{ (!$step2 || !$step1 ) ? 'hidden' : '' }} focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xl px-10 py-3 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Imprimir
-                    <i class="bi bi-printer-fill"></i></button>
-            </div>
-
         </div>
     </div>
+
 </div>

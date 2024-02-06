@@ -17,14 +17,61 @@ class DenomTimbreSeeder extends Seeder
     public function run(): void
     {
 
-        $admin = new DenomTimbre();
+        $denominacion = new DenomTimbre();
 
-        $admin->cant_ut = null;
-        $admin->img = 'timbre_electronico.jpeg';
-        $admin->tipo = 'electronico';
+        $denominacion->id = 1000;
+        $denominacion->cant_ut = null;
+        $denominacion->img = 'timbre_electronico.jpeg';
+        $denominacion->tipo = 'electronico';
 
-        $admin->save();
+        $denominacion->save();
 
-        DenomTimbre::factory(20)->create();
+        $denominacion = new DenomTimbre();
+
+        $denominacion->id = 1;
+        $denominacion->cant_ut = 1;
+        $denominacion->img = '1_utet.jpg';
+        $denominacion->tipo = 'fisico';
+
+        $denominacion->save();
+
+        $denominacion = new DenomTimbre();
+
+        $denominacion->id = 5;
+        $denominacion->cant_ut = 5;
+        $denominacion->img = '5_utet.jpg';
+        $denominacion->tipo = 'fisico';
+
+        $denominacion->save();
+
+        $denominacion = new DenomTimbre();
+
+        $denominacion->id = 10;
+        $denominacion->cant_ut = 10;
+        $denominacion->img = '10_utet.jpg';
+        $denominacion->tipo = 'fisico';
+
+        $denominacion->save();
+        
+        $denominacion = new DenomTimbre();
+
+        $denominacion->id = 20;
+        $denominacion->cant_ut = 20;
+        $denominacion->img = '20_utet.jpg';
+        $denominacion->tipo = 'fisico';
+
+        $denominacion->save();
+
+        $denominacion = new DenomTimbre();
+
+        $denominacion->id = 50;
+        $denominacion->cant_ut = 50;
+        $denominacion->img = '50_utet.jpg';
+        $denominacion->tipo = 'fisico';
+
+        $denominacion->save();
+
+
+        // DenomTimbre::factory(20)->create();
     }
 }

@@ -118,7 +118,7 @@ class TramiteForm extends Component
                 'cant_ut' => $this->totalUt,
                 'tramite_id' => $tramite->id,
                 'status' => 'asignado',
-                'denominacion_id' => 1,
+                'denominacion_id' => 1000,
                 'code_qr' => $qrRoute,
             ]);
 
