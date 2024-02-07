@@ -18,9 +18,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('api_token', 80)->after('password')->unique()->nullable()->default(null);
-            $table->foreignId('oficina_id')
+            $table->foreignId('punto_id')
                 ->nullable()
-                ->constrained('oficinas')
+                ->constrained('puntos')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
             $table->rememberToken();

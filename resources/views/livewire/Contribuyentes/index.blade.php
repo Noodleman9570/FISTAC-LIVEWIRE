@@ -1,6 +1,6 @@
 <div>
     <div class="pt-12 xl:pl-[10rem]">
-        <div class="md:w-[70vw]  bg-white dark:bg-[#111827] p-4 rounded-lg mx-auto sm:px-6 lg:px-8 text-black dark:text-white">
+        <div class="md:w-[70vw]  bg-white dark:bg-[#111c44] p-4 rounded-lg mx-auto sm:px-6 lg:px-8 text-black dark:text-white">
 
             <x-primary-button wire:click='create' class="mb-4">
                 Agregar Contribuyente

@@ -30,7 +30,7 @@ class Index extends Component
 
     public function updatedCantidad()
     {
-
+        
     }
 
     public function selectedTimbre($timbre)
@@ -124,7 +124,7 @@ class Index extends Component
 
             $timbreFiscal = TimbreFiscal::create([
                 'codigo' => $codigo,
-                'status' => 'asignado',
+                'status' => 'vacio',
                 'denominacion_id' => $this->selectTimbre,
                 'code_qr' => $qrRoute,
             ]);

@@ -53,7 +53,7 @@ class User extends Authenticatable
      */
     public function oficina()
     {
-        return $this->belongsTo(Oficina::class);
+        return $this->belongsTo(Punto::class);
     }
 
     /**

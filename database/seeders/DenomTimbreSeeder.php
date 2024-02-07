@@ -30,7 +30,16 @@ class DenomTimbreSeeder extends Seeder
 
         $denominacion->id = 1;
         $denominacion->cant_ut = 1;
-        $denominacion->img = '1_utet.jpg';
+        $denominacion->img = '1_utet.jpeg';
+        $denominacion->tipo = 'fisico';
+
+        $denominacion->save();
+
+        $denominacion = new DenomTimbre();
+
+        $denominacion->id = 2;
+        $denominacion->cant_ut = 2;
+        $denominacion->img = '2_utet.jpeg';
         $denominacion->tipo = 'fisico';
 
         $denominacion->save();
@@ -39,25 +48,16 @@ class DenomTimbreSeeder extends Seeder
 
         $denominacion->id = 5;
         $denominacion->cant_ut = 5;
-        $denominacion->img = '5_utet.jpg';
-        $denominacion->tipo = 'fisico';
-
-        $denominacion->save();
-
-        $denominacion = new DenomTimbre();
-
-        $denominacion->id = 10;
-        $denominacion->cant_ut = 10;
-        $denominacion->img = '10_utet.jpg';
+        $denominacion->img = '5_utet.jpeg';
         $denominacion->tipo = 'fisico';
 
         $denominacion->save();
         
         $denominacion = new DenomTimbre();
 
-        $denominacion->id = 20;
-        $denominacion->cant_ut = 20;
-        $denominacion->img = '20_utet.jpg';
+        $denominacion->id = 10;
+        $denominacion->cant_ut = 10;
+        $denominacion->img = '1_utet.jpeg';
         $denominacion->tipo = 'fisico';
 
         $denominacion->save();
@@ -66,7 +66,7 @@ class DenomTimbreSeeder extends Seeder
 
         $denominacion->id = 50;
         $denominacion->cant_ut = 50;
-        $denominacion->img = '50_utet.jpg';
+        $denominacion->img = '50_utet.jpeg';
         $denominacion->tipo = 'fisico';
 
         $denominacion->save();

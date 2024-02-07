@@ -22,7 +22,7 @@ new class extends Component
         class="fixed top-0 left-0 z-40 w-[18rem] h-screen transition-transform -translate-x-full xl:translate-x-0"
         aria-label="Sidebar">
 
-        <nav class="fixed inset-y-0 text-black z-30 dark:text-white bg-white dark:bg-[#1f2937] flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto antialiased  border-0 shadow-xl dark:shadow-none dark:bg-slate-850 max-w-[18rem] ease-nav-brand z-990 xl:ml-6 rounded-2xl xl:left-0 "
+        <nav class="fixed inset-y-0 text-black z-30 dark:text-white bg-white dark:bg-[#111c44] flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto antialiased  border-0 shadow-xl dark:shadow-none dark:bg-slate-850 max-w-[18rem] ease-nav-brand z-990 xl:ml-6 rounded-2xl xl:left-0 "
             aria-expanded="false">
             <!-- Primary Navigation Menu -->
 

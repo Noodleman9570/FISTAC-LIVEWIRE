@@ -1,7 +1,7 @@
 <div>
     <div class="pt-12 xl:pl-[10rem]">
         <div
-            class="md:w-[70vw]  bg-white dark:bg-[#111827] p-4 rounded-lg mx-auto sm:px-6 lg:px-8 text-black dark:text-white">
+            class="md:w-[70vw]  bg-white dark:bg-[#111c44] p-4 rounded-lg mx-auto sm:px-6 lg:px-8 text-black dark:text-white">
 
             <h1 class=" my-7 text-center text-2xl text-black dark:text-white font-black">Generar timbres fiscales</h1>
 
@@ -93,7 +93,7 @@
 
                     <div x-transition.duration.500ms
                         x-bind:class="showTim ? 'translate-x-0' : '-translate-x-[2000px] z-100 absolute'"
-                        class="transition bg-[#111827] duration-700 transform flex flex-wrap">
+                        class="transition bg-[#111c44] duration-700 transform flex flex-wrap">
                         <p class="text-xl my-10 mx-5 w-full"> Selecciona un timbres a imprimir según su unidad
                             tributaria
                         </p>
@@ -103,7 +103,7 @@
                             <div
                                 class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
                                 <div class="relative overflow-hidden rounded-2xl">
-                                    <img src="{{ asset('storage/Timbres_Fisicos/1_utet.jpg') }}" alt="imagen"
+                                    <img src="{{ asset('storage/Timbres_Fisicos/1_utet.jpeg') }}" alt="imagen"
                                         class="w-full h-full object-cover z-0 ">
 
                                     <span
@@ -123,7 +123,7 @@
                             <div
                                 class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
                                 <div class="relative overflow-hidden rounded-2xl">
-                                    <img src="{{ asset('storage/Timbres_Fisicos/5_utet.jpg') }}" alt="imagen"
+                                    <img src="{{ asset('storage/Timbres_Fisicos/2_utet.jpeg') }}" alt="imagen"
                                         class="w-full h-full object-cover z-0 ">
                                     <span
                                         class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_5 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
@@ -141,7 +141,7 @@
                             <div
                                 class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
                                 <div class="relative overflow-hidden rounded-2xl">
-                                    <img src="{{ asset('storage/Timbres_Fisicos/10_utet.jpg') }}" alt="imagen"
+                                    <img src="{{ asset('storage/Timbres_Fisicos/5_utet.jpeg') }}" alt="imagen"
                                         class="w-full h-full object-cover z-0 ">
                                     <span
                                         class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_10 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
@@ -159,7 +159,7 @@
                             <div
                                 class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
                                 <div class="relative overflow-hidden rounded-2xl">
-                                    <img src="{{ asset('storage/Timbres_Fisicos/1_utet.jpg') }}" alt="imagen"
+                                    <img src="{{ asset('storage/Timbres_Fisicos/10_utet.jpeg') }}" alt="imagen"
                                         class="w-full h-full object-cover z-0 ">
                                     <span
                                         class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_20 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
@@ -177,7 +177,7 @@
                             <div
                                 class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
                                 <div class="relative overflow-hidden rounded-2xl">
-                                    <img src="{{ asset('storage/Timbres_Fisicos/1_utet.jpg') }}" alt="imagen"
+                                    <img src="{{ asset('storage/Timbres_Fisicos/50_utet.jpeg') }}" alt="imagen"
                                         class="w-full h-full object-cover z-0 ">
                                     <span
                                         class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_50 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
@@ -189,6 +189,23 @@
                                 </div>
                             </div>
                         </div>
+                        <a href="{{ route('AsigTimElec.index') }}"
+                            class=" {{ $timbre_50 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
+                            <div
+                                class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
+                                <div class="relative overflow-hidden rounded-2xl">
+                                    <img src="{{ asset('storage/Timbre_Electronico/electronico.jpeg') }}" alt="imagen"
+                                        class="w-full h-full object-cover z-0 ">
+                                    <span
+                                        class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_50 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
+                                        <div class="{{ $timbre_50 ? '' : 'invisible' }} text-blue-600 text-9xl">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </a>
 
 
                     </div>

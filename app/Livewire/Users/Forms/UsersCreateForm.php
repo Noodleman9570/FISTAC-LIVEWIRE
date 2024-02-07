@@ -29,6 +29,8 @@ class UsersCreateForm extends Form
     public $roles = [];
     #[Validate]
     public $role_id = '';
+    #[Validate]
+    public $punto_id = '';
 
     public function rules()
     {
@@ -39,6 +41,8 @@ class UsersCreateForm extends Form
             'email' => ['required', 'numeric', 'between:100000,100000000', 'unique:' . User::class],
 
             'role_id' => 'required',
+
+            'punto_id' => 'required',
             
             'email' => [
                 'required',
@@ -79,6 +83,7 @@ class UsersCreateForm extends Form
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'role_id' => $this->role_id,
+            'punto_id' => $this->punto_id,
             'api_token' => $apiToken,
         ]);
 

@@ -18,6 +18,8 @@ class UserSeeder extends Seeder
         $admin->name = 'Kevin';
         $admin->email = 'kevin@kevin.kevin';
         $admin->password = '12345678';
+        $admin->role_id = 1;
+        $admin->punto_id = 1;
 
         $admin->save();
     }

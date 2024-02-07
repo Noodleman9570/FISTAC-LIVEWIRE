@@ -25,16 +25,17 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(ContribuyenteSeeder::class);
-        $this->call(UserSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(TagSeeder::class);
         $this->call(RoleSeeder::class);
+        $this->call(PuntosSeeder::class);
         $this->call(ModuloSeeder::class);
         $this->call(PermisoSeeder::class);
         $this->call(CategoriaSeeder::class);
         $this->call(ConceptoTributoSeeder::class);
         $this->call(EnteTramiteSeeder::class);
         $this->call(TramiteSeeder::class);
+        $this->call(UserSeeder::class);
         $this->call(DenomTimbreSeeder::class);
         $this->call(TimbreFiscalSeeder::class);
     }

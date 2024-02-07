@@ -2,7 +2,7 @@
 
     <div class="pt-12 xl:pl-[10rem]">
         <div
-            class="md:w-[70vw]  bg-white dark:bg-[#111827] p-4 rounded-lg mx-auto sm:px-6 lg:px-8 text-black dark:text-white">
+            class="md:w-[70vw]  bg-white dark:bg-[#111c44] p-4 rounded-lg mx-auto sm:px-6 lg:px-8 text-black dark:text-white">
 
             <x-primary-button wire:click='create' class="mb-4">
                 Agregar Usuario
@@ -43,6 +43,22 @@
                                 <x-input-error-jet for="userCreate.role_id" />
                             </div>
                         </div>
+
+                        <!-- Punto_id -->
+                            <div class="mb-4">
+                                <x-input-label for="punto_id" :value="__('Punto')" />
+                                <x-select class="w-full" wire:model.live="userCreate.punto_id" id="punto_id">
+                                    <option value="" selected disabled>
+                                        Seleccione un rol
+                                    </option>
+                                    @forelse($userCreate->roles as $rol)
+                                        <option value="{{ $rol->id }}">{{ $rol->rol }}</option>
+                                    @empty
+                                        No hay registros
+                                    @endforelse
+                                </x-select>
+                                <x-input-error-jet for="userCreate.role_id" />
+                            </div>
                         
 
                         <!-- Email Address -->

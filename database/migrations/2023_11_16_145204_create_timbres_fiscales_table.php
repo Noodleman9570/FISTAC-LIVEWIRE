@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('timbres_fiscales', function (Blueprint $table) {
             $table->string('codigo', 30)->primary();
-            $table->enum('status', ['generado', 'asignado', 'anulado', 'empleado']);
+            $table->enum('status', ['vacio', 'asignado', 'anulado', 'empleado']);
             $table->integer('cant_ut')->nullable();
             $table->string('code_qr')->nullable();
             $table->foreignId('denominacion_id')

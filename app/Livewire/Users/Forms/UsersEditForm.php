@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Users\Forms;
 
+use App\Models\Punto;
 use App\Models\User;
 use App\Models\Role;
 use Hamcrest\Type\IsInteger;
@@ -22,7 +23,9 @@ class UsersEditForm extends Form
     public $email;
     public $oldEmail;
     public $roles = [];
+    public $puntos = [];
     public $role_id;
+    public $punto_id;
 
     public function rules()
     {
@@ -62,11 +65,13 @@ class UsersEditForm extends Form
 
         $this->resetValidation();
         $this->roles = Role::all();
+        $this->puntos = Punto::all();
         $user = User::find($this->userId);
 
         $this->name = $user->name;
         $this->email = $user->email;
         $this->role_id = $user->role_id;
+        $this->punto_id = $user->punto_id;
 
 
 
