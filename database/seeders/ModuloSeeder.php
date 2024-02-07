@@ -13,27 +13,13 @@ class ModuloSeeder extends Seeder
      */
     public function run(): void
     {
-        //Modulo de Asignacion de Timbres Electronicos
+        //Modulo de timbres fiscales
         $modAsigTimElec = new Modulo;
         $modAsigTimElec->modulo = "Timbres Fiscales";
         $modAsigTimElec->icon = "bi bi-file-break";
         $modAsigTimElec->ruta = "TimbresFiscales.index";
         $modAsigTimElec->descripcion = "Módulo de timbres fiscales";
         $modAsigTimElec->save();
-
-        $modGenTimFis = new Modulo;
-        $modGenTimFis->modulo = "Generacion Timbres Fisicos";
-        $modGenTimFis->ruta = "GenTimFis.index";
-        $modGenTimFis->icon ="bi bi-file-plus";
-        $modGenTimFis->descripcion = "Módulo para Generar Timbres Físicos";
-        $modGenTimFis->save();
-
-        $modAsigTimFis = new Modulo;
-        $modAsigTimFis->modulo = "Asignacion Timbres Físicos";
-        $modAsigTimFis->ruta = "AsigTimFis.index";
-        $modAsigTimFis->icon ="bi bi-file-earmark-medical";
-        $modAsigTimFis->descripcion = "Módulo para Asignar Timbres Físicos";
-        $modAsigTimFis->save();
 
         $aggContrib = new Modulo;
         $aggContrib->modulo = "Contribuyente";

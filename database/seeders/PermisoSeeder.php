@@ -25,30 +25,30 @@ class PermisoSeeder extends Seeder
             $perAdmin->delete = 1;
             $perAdmin->save();
 
-            //Modulo Generacion timbre fisico
-            $perAdmin = New Permiso();
-            $perAdmin->rol_id = 1;
-            $perAdmin->modulo_id = 2;
-            $perAdmin->create = 1;
-            $perAdmin->read = 1;
-            $perAdmin->update = 1;
-            $perAdmin->delete = 1;
-            $perAdmin->save();
+            // //Modulo Generacion timbre fisico
+            // $perAdmin = New Permiso();
+            // $perAdmin->rol_id = 1;
+            // $perAdmin->modulo_id = 2;
+            // $perAdmin->create = 1;
+            // $perAdmin->read = 1;
+            // $perAdmin->update = 1;
+            // $perAdmin->delete = 1;
+            // $perAdmin->save();
 
-            //Modulo Asignacion timbre fisico
-            $perAdmin = New Permiso();
-            $perAdmin->rol_id = 1;
-            $perAdmin->modulo_id = 3;
-            $perAdmin->create = 1;
-            $perAdmin->read = 1;
-            $perAdmin->update = 1;
-            $perAdmin->delete = 1;
-            $perAdmin->save();
+            // //Modulo Asignacion timbre fisico
+            // $perAdmin = New Permiso();
+            // $perAdmin->rol_id = 1;
+            // $perAdmin->modulo_id = 3;
+            // $perAdmin->create = 1;
+            // $perAdmin->read = 1;
+            // $perAdmin->update = 1;
+            // $perAdmin->delete = 1;
+            // $perAdmin->save();
 
             //Modulo Agregar contribuyente
             $perAdmin = New Permiso();
             $perAdmin->rol_id = 1;
-            $perAdmin->modulo_id = 4;
+            $perAdmin->modulo_id = 2;
             $perAdmin->create = 1;
             $perAdmin->read = 1;
             $perAdmin->update = 1;
@@ -58,7 +58,7 @@ class PermisoSeeder extends Seeder
             //Modulo Agregar usuario
             $perAdmin = New Permiso();
             $perAdmin->rol_id = 1;
-            $perAdmin->modulo_id = 5;
+            $perAdmin->modulo_id = 3;
             $perAdmin->create = 1;
             $perAdmin->read = 1;
             $perAdmin->update = 1;
@@ -68,7 +68,7 @@ class PermisoSeeder extends Seeder
             //Modulo Control de timbres
             $perAdmin = New Permiso();
             $perAdmin->rol_id = 1;
-            $perAdmin->modulo_id = 6;
+            $perAdmin->modulo_id = 4;
             $perAdmin->create = 1;
             $perAdmin->read = 1;
             $perAdmin->update = 1;
@@ -78,7 +78,7 @@ class PermisoSeeder extends Seeder
             //Modulo Bitacora
             $perAdmin = New Permiso();
             $perAdmin->rol_id = 1;
-            $perAdmin->modulo_id = 7;
+            $perAdmin->modulo_id = 5;
             $perAdmin->create = 0;
             $perAdmin->read = 1;
             $perAdmin->update = 0;
@@ -88,7 +88,7 @@ class PermisoSeeder extends Seeder
              //Modulo Ley
             $perAdmin = New Permiso();
             $perAdmin->rol_id = 1;
-            $perAdmin->modulo_id = 8;
+            $perAdmin->modulo_id = 6;
             $perAdmin->create = 1;
             $perAdmin->read = 1;
             $perAdmin->update = 1;
@@ -108,30 +108,30 @@ class PermisoSeeder extends Seeder
             $perTaquilla->delete = 0;
             $perTaquilla->save();
 
-            //Modulo Generacion timbre fisico
-            $perTaquilla = New Permiso();
-            $perTaquilla->rol_id = 2;
-            $perTaquilla->modulo_id = 2;
-            $perTaquilla->create = 0;
-            $perTaquilla->read = 1;
-            $perTaquilla->update = 0;
-            $perTaquilla->delete = 0;
-            $perTaquilla->save();
+            // //Modulo Generacion timbre fisico
+            // $perTaquilla = New Permiso();
+            // $perTaquilla->rol_id = 2;
+            // $perTaquilla->modulo_id = 2;
+            // $perTaquilla->create = 0;
+            // $perTaquilla->read = 1;
+            // $perTaquilla->update = 0;
+            // $perTaquilla->delete = 0;
+            // $perTaquilla->save();
 
-            //Modulo Asignacion timbre fisico
-            $perTaquilla = New Permiso();
-            $perTaquilla->rol_id = 2;
-            $perTaquilla->modulo_id = 3;
-            $perTaquilla->create = 1;
-            $perTaquilla->read = 1;
-            $perTaquilla->update = 1;
-            $perTaquilla->delete = 1;
-            $perTaquilla->save();
+            // //Modulo Asignacion timbre fisico
+            // $perTaquilla = New Permiso();
+            // $perTaquilla->rol_id = 2;
+            // $perTaquilla->modulo_id = 3;
+            // $perTaquilla->create = 1;
+            // $perTaquilla->read = 1;
+            // $perTaquilla->update = 1;
+            // $perTaquilla->delete = 1;
+            // $perTaquilla->save();
 
             //Modulo Agregar contribuyente
             $perTaquilla = New Permiso();
             $perTaquilla->rol_id = 2;
-            $perTaquilla->modulo_id = 4;
+            $perTaquilla->modulo_id = 2;
             $perTaquilla->create = 1;
             $perTaquilla->read = 1;
             $perTaquilla->update = 0;
@@ -141,7 +141,7 @@ class PermisoSeeder extends Seeder
             //Modulo Agregar usuario
             $perTaquilla = New Permiso();
             $perTaquilla->rol_id = 2;
-            $perTaquilla->modulo_id = 5;
+            $perTaquilla->modulo_id = 3;
             $perTaquilla->create = 0;
             $perTaquilla->read = 0;
             $perTaquilla->update = 0;
@@ -151,7 +151,7 @@ class PermisoSeeder extends Seeder
             //Modulo Control de timbres
             $perTaquilla = New Permiso();
             $perTaquilla->rol_id = 2;
-            $perTaquilla->modulo_id = 6;
+            $perTaquilla->modulo_id = 4;
             $perTaquilla->create = 0;
             $perTaquilla->read = 1;
             $perTaquilla->update = 0;
@@ -161,7 +161,7 @@ class PermisoSeeder extends Seeder
             //Modulo Bitacora
             $perTaquilla = New Permiso();
             $perTaquilla->rol_id = 2;
-            $perTaquilla->modulo_id = 7;
+            $perTaquilla->modulo_id = 5;
             $perTaquilla->create = 0;
             $perTaquilla->read = 0;
             $perTaquilla->update = 0;
@@ -171,7 +171,7 @@ class PermisoSeeder extends Seeder
              //Modulo Ley
             $perTaquilla = New Permiso();
             $perTaquilla->rol_id = 2;
-            $perTaquilla->modulo_id = 8;
+            $perTaquilla->modulo_id = 6;
             $perTaquilla->create = 0;
             $perTaquilla->read = 1;
             $perTaquilla->update = 0;
