@@ -40,14 +40,7 @@ new class extends Component
             <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav h-[35rem] grow basis-full"><!--contenido de nav-->
                 <ul class="flex flex-col pl-0 mb-0">
                     
-                    <li class="mt-0.5 w-full">
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                            <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                                <i class="relative top-0 text-xl leading-normal text-blue-500 ni ni-tv-2"></i>
-                            </div>
-                            <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">{{ __('Dashboard') }}</span>
-                        </x-nav-link>
-                    </li>
+                
 
                     @forelse ($modulos as $modulo)
                         <li class="mt-0.5 w-full">
@@ -59,7 +52,7 @@ new class extends Component
                             </x-nav-link>
                         </li>
                     @empty
-                        Ta vacio
+                        No hay registros
                     @endforelse
 
                     

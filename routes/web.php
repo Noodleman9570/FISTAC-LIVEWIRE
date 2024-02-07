@@ -1,13 +1,7 @@
 <?php
 
-use App\Http\Controllers\DenomTimbresController;
-use App\Livewire\Contador;
+
 use Illuminate\Support\Facades\Route;
-use App\Livewire\CreatePost;
-use App\Livewire\Dashboard;
-use App\Livewire\Formulario;
-use App\Livewire\TableComponent;
-use App\Http\Controllers\PDFController;
 
 //Modulos del sistema
 use App\Http\Controllers\TimbresFiscalesController;
@@ -20,10 +14,8 @@ use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\ContribuyenteController;
 use App\Http\Controllers\LeyController;
 use App\Http\Controllers\ReportTimElec;
+use App\Http\Controllers\TimbreElectronicoPrintController;
 
-
-
-use App\Models\Contribuyente;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +49,9 @@ Route::resource('Bitacora', BitacoraController::class)
 Route::resource('Ley', LeyController::class)
     ->middleware(['auth', 'verified']);
 
-Route::get('ReportTimElec', [ReportTimElec::class, 'index'])
+Route::get('timbreElectronico', [TimbreElectronicoPrintController::class, 'index']);
+
+Route::get('ReportTimElec', [TimbreElectronicoPrintController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('ReportTimElec');
 
@@ -65,7 +59,7 @@ Route::get('ReportTimElec', [ReportTimElec::class, 'index'])
 // Route::resource('denomTimbres', DenomTimbresController::class);
 
 
-Route::view('dashboard', 'dashboard')
+Route::get('dashboard', [TimbresFiscalesController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
