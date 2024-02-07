@@ -64,32 +64,6 @@
                     </span>
                 </div>
             </div>
-            {{-- Telefono input --}}
-            <div class="w-full max-w-full px-3 shrink-0 md:w-1/4 md:flex-0">
-                <div class="mb-4">
-                    <span class="w-full mr-2">
-                        <x-input-label>
-                            Telefono:
-                        </x-input-label>
-
-                        <x-text-input class="w-full mb-2" :disabled="$disabled"
-                            wire:model="contribuyenteCreate.telefono"></x-text-input>
-                        <x-input-error-jet for="contribuyenteCreate.telefono" />
-                    </span>
-                </div>
-            </div>
-            {{-- Fecha de nacimiento --}}
-            <div class="w-full max-w-full md:w-1/4 px-3 shrink-0 md:flex-0">
-                <div class="mb-4">
-                    <x-input-label>
-                        Fecha de nacimiento:
-                    </x-input-label>
-
-                    <x-text-input type='date' class="w-full mb-2" :disabled="$disabled"
-                            wire:model="contribuyenteCreate.fecha_nac"></x-text-input>
-                    <x-input-error-jet for="contribuyenteCreate.fecha_nac" />
-                </div>
-            </div>
             {{-- Apellido input --}}
             <div class="w-full max-w-full px-3 shrink-0 md:w-1/4 md:flex-0">
                 <div class="mb-4">
@@ -116,6 +90,33 @@
                             wire:model="contribuyenteCreate.apellido2nd"></x-text-input>
                             <x-input-error-jet for="contribuyenteCreate.apellido2nd" />
                     </span>
+                </div>
+            </div>
+
+            {{-- Telefono input --}}
+            <div class="w-full max-w-full px-3 shrink-0 md:w-1/4 md:flex-0">
+                <div class="mb-4">
+                    <span class="w-full mr-2">
+                        <x-input-label>
+                            Telefono:
+                        </x-input-label>
+
+                        <x-text-input class="w-full mb-2" :disabled="$disabled"
+                            wire:model="contribuyenteCreate.telefono"></x-text-input>
+                        <x-input-error-jet for="contribuyenteCreate.telefono" />
+                    </span>
+                </div>
+            </div>
+            {{-- Fecha de nacimiento --}}
+            <div class="w-full max-w-full md:w-1/4 px-3 shrink-0 md:flex-0">
+                <div class="mb-4">
+                    <x-input-label>
+                        Fecha de nacimiento:
+                    </x-input-label>
+
+                    <x-text-input type='date' class="w-full mb-2" :disabled="$disabled"
+                            wire:model="contribuyenteCreate.fecha_nac"></x-text-input>
+                    <x-input-error-jet for="contribuyenteCreate.fecha_nac" />
                 </div>
             </div>
             

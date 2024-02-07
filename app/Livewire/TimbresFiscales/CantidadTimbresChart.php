@@ -3,6 +3,7 @@
 namespace App\Livewire\TimbresFiscales;
 
 use Livewire\Component;
+use App\Models\TimbreFiscal;
 
 class CantidadTimbresChart extends Component
 {
