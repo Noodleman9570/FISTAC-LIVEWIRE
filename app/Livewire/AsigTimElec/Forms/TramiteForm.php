@@ -105,7 +105,7 @@ class TramiteForm extends Component
 
             $writer = new PngWriter();
 
-            $qr = QrCode::create('http://192.168.0.151:8000/api/v1/getTimbre?codigo='.$codigo);
+            $qr = QrCode::create('http://'.$_SERVER['HTTP_HOST'].'/api/v1/getTimbre?codigo='.$codigo);
 
             $qr = $writer->write($qr);
 
