@@ -13,16 +13,24 @@ use Endroid\QrCode\Logo\Logo;
 use Endroid\QrCode\RoundBlockSizeMode;
 use Endroid\QrCode\Writer\PngWriter;
 use Endroid\QrCode\Writer\ValidationException;
+// use Spatie\LaravelPdf\Facades\Pdf;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Spatie\Browsershot\Browsershot;
+
 
 class Index extends Component
 {
+    public $refresh = false;
+
+    protected $listeners = ['refreshComponent' => '$refresh'];
+
     public $step1 = false;
     public $step2 = false;
     public $step3 = false;
     public $timbre_1 = false;
+    public $timbre_2 = false;
     public $timbre_5 = false;
     public $timbre_10 = false;
-    public $timbre_20 = false;
     public $timbre_50 = false;
     public $selectTimbre = 0;
     public $cantidad = 0;
@@ -38,41 +46,41 @@ class Index extends Component
         switch ($timbre) {
             case 1:
                 $this->timbre_1 = true;
+                $this->timbre_2 = false;
                 $this->timbre_5 = false;
                 $this->timbre_10 = false;
-                $this->timbre_20 = false;
                 $this->timbre_50 = false;
                 $this->selectTimbre = 1;
                 break;
+            case 2:
+                $this->timbre_1 = false;
+                $this->timbre_2 = true;
+                $this->timbre_5 = false;
+                $this->timbre_10 = false;
+                $this->timbre_50 = false;
+                $this->selectTimbre = 2;
+                break;
             case 5:
                 $this->timbre_1 = false;
+                $this->timbre_2 = false;
                 $this->timbre_5 = true;
                 $this->timbre_10 = false;
-                $this->timbre_20 = false;
                 $this->timbre_50 = false;
                 $this->selectTimbre = 5;
                 break;
             case 10:
                 $this->timbre_1 = false;
+                $this->timbre_2 = false;
                 $this->timbre_5 = false;
                 $this->timbre_10 = true;
-                $this->timbre_20 = false;
                 $this->timbre_50 = false;
                 $this->selectTimbre = 10;
                 break;
-            case 20:
-                $this->timbre_1 = false;
-                $this->timbre_5 = false;
-                $this->timbre_10 = false;
-                $this->timbre_20 = true;
-                $this->timbre_50 = false;
-                $this->selectTimbre = 20;
-                break;
             case 50:
                 $this->timbre_1 = false;
+                $this->timbre_2 = false;
                 $this->timbre_5 = false;
                 $this->timbre_10 = false;
-                $this->timbre_20 = false;
                 $this->timbre_50 = true;
                 $this->selectTimbre = 50;
                 break;
@@ -92,6 +100,7 @@ class Index extends Component
     public function checkStep2()
     {
         $this->step2 = true;
+
     }
 
     public function checkStep3()
@@ -106,15 +115,16 @@ class Index extends Component
 
     public function generatedMassTimbres($cant)
     {
-        for ($i=0; $i < $cant; $i++) { 
 
-            $date = date('h:m:s');
+        for ($i=0; $i < $cant*28; $i++) { 
+
+            $date = date('m:s');
             $date = str_replace(':', '', $date);
-            $codigo = 'FI-'.Helpers::generarCodigo(6).$date;
+            $codigo = 'FI-'.Helpers::generarCodigo(7);
 
             $writer = new PngWriter();
 
-            $qr = QrCode::create('http://192.168.0.151:8000/api/v1/getTimbre?codigo='.$codigo);
+            $qr = QrCode::create('http://'.$_SERVER['HTTP_HOST'].'/api/v1/getTimbre?codigo='.$codigo);
 
             $qr = $writer->write($qr);
 
@@ -129,9 +139,36 @@ class Index extends Component
                 'code_qr' => $qrRoute,
             ]);
 
-            $timbresGenerated[$i] = $timbreFiscal;
+            $this->dispatch('$refresh');
+
+            $timbresGenerated[$i] = $codigo;
+
+
 
         }
+
+        // Browsershot::url(route('ReportTimElec'))
+        // ->setNodeBinary('/home/kevin/.nvm/versions/node/v18.15.0/bin/node')
+        // ->setNpmBinary('/home/kevin/.nvm/versions/node/v18.15.0/bin/npm')
+        // ->setBrowserPath('/usr/bin/google-chrome') 
+        // ->save('example.pdf');
+
+        // Pdf::view('PrintTimbreElectronico.index')
+            
+        //     ->save('algunpdf.pdf');
+        $denom = $this->selectTimbre;
+        $rutaSave = 'timbresFisicos/timbres-'.$date.'.pdf';
+        $rutaPdf = 'timbres-'.$date.'.pdf';
+        
+            $pdf = Pdf::loadView('PrintTimbreElectronico.index', compact('timbresGenerated', 'cant', 'denom'))
+            ->save($rutaSave);
+
+
+            return redirect("descargar/$rutaPdf");
+
+
+
+
     }
 
     public function back()

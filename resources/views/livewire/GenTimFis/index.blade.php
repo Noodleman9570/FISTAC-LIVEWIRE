@@ -118,12 +118,30 @@
                         </div>
 
 
+                        <div wire:click='selectedTimbre(2)'
+                            class=" {{ $timbre_2 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
+                            <div
+                                class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
+                                <div class="relative overflow-hidden rounded-2xl">
+                                    <img src="{{ asset('storage/Timbres_Fisicos/2_utet.jpeg') }}" alt="imagen"
+                                        class="w-full h-full object-cover z-0 ">
+                                    <span
+                                        class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_2 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
+                                        <div class="{{ $timbre_2 ? '' : 'invisible' }} text-blue-600 text-9xl">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+                                    </span>
+
+                                </div>
+                            </div>
+                        </div>
+
                         <div wire:click='selectedTimbre(5)'
                             class=" {{ $timbre_5 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
                             <div
                                 class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
                                 <div class="relative overflow-hidden rounded-2xl">
-                                    <img src="{{ asset('storage/Timbres_Fisicos/2_utet.jpeg') }}" alt="imagen"
+                                    <img src="{{ asset('storage/Timbres_Fisicos/5_utet.jpeg') }}" alt="imagen"
                                         class="w-full h-full object-cover z-0 ">
                                     <span
                                         class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_5 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
@@ -141,29 +159,11 @@
                             <div
                                 class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
                                 <div class="relative overflow-hidden rounded-2xl">
-                                    <img src="{{ asset('storage/Timbres_Fisicos/5_utet.jpeg') }}" alt="imagen"
+                                    <img src="{{ asset('storage/Timbres_Fisicos/10_utet.jpeg') }}" alt="imagen"
                                         class="w-full h-full object-cover z-0 ">
                                     <span
                                         class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_10 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
                                         <div class="{{ $timbre_10 ? '' : 'invisible' }} text-blue-600 text-9xl">
-                                            <i class="bi bi-check-circle"></i>
-                                        </div>
-                                    </span>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div wire:click='selectedTimbre(20)'
-                            class=" {{ $timbre_20 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
-                            <div
-                                class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
-                                <div class="relative overflow-hidden rounded-2xl">
-                                    <img src="{{ asset('storage/Timbres_Fisicos/10_utet.jpeg') }}" alt="imagen"
-                                        class="w-full h-full object-cover z-0 ">
-                                    <span
-                                        class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_20 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
-                                        <div class="{{ $timbre_20 ? '' : 'invisible' }} text-blue-600 text-9xl">
                                             <i class="bi bi-check-circle"></i>
                                         </div>
                                     </span>
@@ -190,17 +190,15 @@
                             </div>
                         </div>
                         <a href="{{ route('AsigTimElec.index') }}"
-                            class=" {{ $timbre_50 ? 'scale-110 z-40' : '' }} my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
+                            class=" my-4 sm:w-1/2 px-10 mb-3 lg:w-1/3 xl:flex-none hover:scale-110 transition duration-400 hover:z-40">
                             <div
                                 class="relative flex flex-col min-w-0 break-words bg-transparent border-0 border-transparent border-solid shadow-xl rounded-2xl bg-clip-border">
                                 <div class="relative overflow-hidden rounded-2xl">
                                     <img src="{{ asset('storage/Timbre_Electronico/electronico.jpeg') }}" alt="imagen"
                                         class="w-full h-full object-cover z-0 ">
                                     <span
-                                        class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 {{ $timbre_50 ? 'border-solid border-blue-600 border-8' : '' }} hover:opacity-80  hover:ease-in duration-200">
-                                        <div class="{{ $timbre_50 ? '' : 'invisible' }} text-blue-600 text-9xl">
-                                            <i class="bi bi-check-circle"></i>
-                                        </div>
+                                        class="absolute flex justify-center items-center  top-0 left-0 w-full h-full bg-center bg-cover hover:bg-gradient-to-tl rounded-2xl hover:border-solid border-blue-600 hover:border-8 hover:opacity-80  hover:ease-in duration-200">
+                                        
                                     </span>
 
                                 </div>
@@ -239,8 +237,7 @@
                     <div x-transition.duration.500ms
                         x-bind:class="showPrint ? 'translate-x-0' : '-translate-x-full opacity-0 absolute'"
                         class=" transition duration-700 transform mb-5 w-full">
-                        <p class="text-xl my-10 mx-5"> Elige la cantidad de hojas a
-                            imprimir
+                        <p class="text-xl my-10 mx-5"> Previsualizacion
                         </p>
 
                         {{-- <div class="flex w-full justify-center mb-5">
@@ -249,14 +246,16 @@
                             </div> --}}
 
                         <div class="flex w-full justify-center mb-5">
-                            <img src="{{ asset("storage/Timbres_Fisicos/timbreReportExample.png") }}" width="300px"
-                                alt="">
+                            
+                            <livewire:TimbresFisicosPdf wire:model='selectTimbre'>
 
                         </div>
 
                        
 
                     </div>
+
+                    
 
                     <div id="popup-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                         <div class="relative p-4 w-full max-w-md max-h-full">
@@ -303,12 +302,16 @@
                     </button>
 
                     <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="button" 
-                        class="{{ !$step2 || !$step1 ? 'hidden' : '' }} focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 ease-in duration-100 focus:ring-blue-300 font-medium rounded-lg text-xl px-10 py-3 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Imprimir
+                        class="{{ !$step2 || !$step1  ? 'hidden' : '' }} focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 ease-in duration-100 focus:ring-blue-300 font-medium rounded-lg text-xl px-10 py-3 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Imprimir
                         <i class="bi bi-printer-fill"></i>
                     </button>
                 </div>
             </div>
         </div>
     </div>
-
+<script>
+window.livewire.on('refreshPage', () => {
+    location.reload();
+});
+</script>
 </div>

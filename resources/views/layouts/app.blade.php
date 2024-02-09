@@ -84,7 +84,7 @@
 {{-- Dark Mode --}}
 <script src="{{ asset('/js/darkmode.js') }}"></script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 @livewire('wire-elements-modal')
 @livewireChartsScripts
