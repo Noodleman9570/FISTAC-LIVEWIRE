@@ -19,8 +19,8 @@ $cont = 0;
         }
 
         .estampilla {
-            width: 170px;
-            height: 130px;
+            width: 220px;
+            height: 150px;
             border: 1px solid #aaa;
             position: relative;
         }
