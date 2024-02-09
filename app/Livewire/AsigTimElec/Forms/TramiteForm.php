@@ -19,6 +19,7 @@ use Endroid\QrCode\Logo\Logo;
 use Endroid\QrCode\RoundBlockSizeMode;
 use Endroid\QrCode\Writer\PngWriter;
 use Endroid\QrCode\Writer\ValidationException;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class TramiteForm extends Component
 {
@@ -122,9 +123,21 @@ class TramiteForm extends Component
                 'code_qr' => $qrRoute,
             ]);
 
+            $timbresGenerated = $codigo;
+            $denom = 'cant_ut';
+
+            $rutaSave = 'timbresElectronicos/timbres-'.$date.'.pdf';
+            $rutaPdf = 'timbres-'.$date.'.pdf';
+        
+            $pdf = Pdf::loadView('welcome', compact('timbresGenerated', 'denom'))
+            ->save($rutaSave);
+
+
+            return redirect("descargarEl/$rutaPdf");
+
             
 
-            $this->redirect(route('AsigTimElec.index')); 
+            // $this->redirect(route('AsigTimElec.index')); 
             
         }else{
             $this->dispatch('contrib-save');

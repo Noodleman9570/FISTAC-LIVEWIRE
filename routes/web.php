@@ -51,6 +51,14 @@ Route::resource('Ley', LeyController::class)
 
 Route::get('timbreElectronico', [TimbreElectronicoPrintController::class, 'index']);
 
+Route::get('descargar/{rutaSave}', function($rutaSave){
+    return response()->download(public_path("timbresFisicos/".$rutaSave));
+})->name('descargar');
+
+Route::get('descargarEl/{rutaSave}', function($rutaSave){
+    return response()->download(public_path("timbresElectronicos/".$rutaSave));
+})->name('descargar');
+
 Route::get('ReportTimElec', [TimbreElectronicoPrintController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('ReportTimElec');
@@ -58,6 +66,7 @@ Route::get('ReportTimElec', [TimbreElectronicoPrintController::class, 'index'])
 
 // Route::resource('denomTimbres', DenomTimbresController::class);
 
+Route::view('welcome', 'welcome')->name('welcome');
 
 Route::get('dashboard', [TimbresFiscalesController::class, 'index'])
     ->middleware(['auth', 'verified'])
