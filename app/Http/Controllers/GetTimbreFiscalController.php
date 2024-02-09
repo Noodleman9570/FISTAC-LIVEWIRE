@@ -39,4 +39,19 @@ class GetTimbreFiscalController extends Controller
         // Devuelve un mensaje de éxito
         return response()->json(['message' => 'Estado actualizado con éxito']);
     }
+
+    public function getTimbre()
+    {
+       // Busca todos los TimbreFiscal donde el campo 'status' es 'empleado'
+        $timbres = TimbreFiscal::where('status', 'empleado')->get();
+
+        // Si no se encuentran timbres, devuelve un error 404
+        if ($timbres->isEmpty()) {
+            return response()->json(['message' => 'No se encontraron timbres con estado empleado'], 404);
+        }
+
+        // Devuelve los timbres encontrados
+        return response()->json(['message' => 'Timbres encontrados con éxito', 'data' => $timbres]);
+    }
+
 }

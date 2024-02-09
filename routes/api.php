@@ -42,6 +42,8 @@ Route::post('/v1/login', function (Request $request) {
 });
 
 Route::put('/v1/update-status/{codigo}', [GetTimbreFiscalController::class, 'updateStatus']);
+Route::get('/v1/timbreUsado', [GetTimbreFiscalController::class, 'getTimbre']);
+
 
 
 
