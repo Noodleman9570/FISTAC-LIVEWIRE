@@ -21,4 +21,22 @@ class GetTimbreFiscalController extends Controller
 
         return $timbre; 
     }
+
+    public function updateStatus(Request $request, $codigo)
+    {
+        // Busca el primer TimbreFiscal donde el campo 'codigo' coincide con el $codigo proporcionado
+        $timbre = TimbreFiscal::where('codigo', $codigo)->first();
+
+        // Si no se encuentra el timbre, devuelve un error 404
+        if (!$timbre) {
+            return response()->json(['message' => 'Timbre no encontrado'], 404);
+        }
+
+        // Actualiza el estado del timbre a 'empleado' o al estado proporcionado en la solicitud
+        $timbre->status = $request->get('status', 'empleado');
+        $timbre->save(); // Guarda los cambios en la base de datos
+
+        // Devuelve un mensaje de éxito
+        return response()->json(['message' => 'Estado actualizado con éxito']);
+    }
 }
