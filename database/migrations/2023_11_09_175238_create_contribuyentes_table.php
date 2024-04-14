@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('contribuyentes', function (Blueprint $table) {
             $table->id();
-            $table->integer('cedula');
             $table->enum('prefijo', ['V', 'E', 'J', 'G']);
             $table->unique(['prefijo', 'cedula']);
+            $table->integer('cedula');
             $table->string('nombre');
             $table->string('apellido');
-            $table->text('direccion');
-            $table->string('telefono');
-            $table->date('fecha_nac');
+            $table->text('direccion')->nullable();
+            $table->string('telefono')->nullable();
+            $table->date('fecha_nac')->nullable();
             $table->timestamps();
         });
     }

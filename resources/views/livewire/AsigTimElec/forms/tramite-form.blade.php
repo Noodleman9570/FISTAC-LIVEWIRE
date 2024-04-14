@@ -95,7 +95,7 @@
             <div class="mb-4">
                 <div class="mx-auto  max-w-xs  mt-2">
                     <dt class="text-base text-center text-gray-300">Total unidades tributarias</dt>
-                    <dd class="order-first text-3xl font-semibold tracking-tight text-center text-white sm:text-2xl">{{ $totalUt }}</dd>
+                    <dd class="order-first text-3xl font-semibold tracking-tight text-center sm:text-2xl">{{ $totalUt }}</dd>
                 </div>
             </div>
         </div>
