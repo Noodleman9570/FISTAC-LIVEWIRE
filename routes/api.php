@@ -41,6 +41,11 @@ Route::post('/v1/login', function (Request $request) {
     return response()->json(['error' => 'Unauthenticated.'], 401);
 });
 
+Route::put('/v1/update-status/{codigo}', [GetTimbreFiscalController::class, 'updateStatus']);
+Route::get('/v1/timbreUsado', [GetTimbreFiscalController::class, 'getTimbre']);
+
+
+
 
 Route::group(['prefix'=> 'v1'],function(){
     Route::apiResource('timbreFiscal', TimbreFiscalApiController::class);

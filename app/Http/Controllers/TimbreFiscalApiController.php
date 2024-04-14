@@ -14,4 +14,5 @@ class TimbreFiscalApiController extends Controller
         $timbreFiscal = TimbreFiscal::all();
         return new TimbreFiscalCollection($timbreFiscal);
     }
+     
 }
